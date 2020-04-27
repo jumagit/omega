@@ -13,7 +13,6 @@ function get_user_info($username)
     return $data;
 }
 
-
 //fetch user function
 function fetch_users()
 {
@@ -37,7 +36,7 @@ function fetch_users()
             $email = $trailRow['email'];
             $mobile = $trailRow['mobile'];
             $account_status = $trailRow['account_status'];
-            $created_on  = date_format(date_create($trailRow['created_on']), ' l jS F Y');
+            $created_on = date_format(date_create($trailRow['created_on']), ' l jS F Y');
 
             if ($account_status == 1) {
 
@@ -66,7 +65,6 @@ function fetch_users()
     return $output;
 
 }
-
 
 //fetch log function
 
@@ -98,6 +96,48 @@ function fetch_logs()
            <td>{$activityTime}</td>
            <td>{$log_type}</td>
 
+           </tr>";
+
+        }
+
+    }
+
+    return $output;
+}
+
+function fetch_brands()
+{
+
+    $sql = "SELECT * FROM brands ORDER BY brand_id DESC";
+
+    $result = query($sql);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $output = "";
+
+        $count = 0;
+
+        while ($trailRow = mysqli_fetch_array($result)) {
+
+            $count++;
+            $brand_id = $trailRow['brand_id'];
+            $brand_name = $trailRow['brand_name'];
+            $brandStatus = $trailRow['brand_status'];
+            if($brandStatus == 1){
+                $brandStatus = "Available";
+            }else{
+                $brandStatus = "Unavailable";
+            }
+
+            $output .= "<tr>
+           <td>{$count}</td>
+           <td>{$brand_name}</td>
+           <td>{$brandStatus}</td>
+           <td><a onclick='makeAvailable($brand_id)' class='text-info'><i class='fa fa-th'></i> Available  </a></td>
+           <td><a onclick='notAvailable($brand_id)' class='text-success'><i class='fa fa-list'></i> Not Available  </a></td>
+           <td><a href='edit_brands.php?edit={$brand_id}' ><i class='fa fa-edit'></i></a></td>
+           <td><a onclick='deleteBrand($brand_id)' class='text-danger'><i class='fa fa-trash'></i></a></td>
            </tr>";
 
         }

@@ -23,7 +23,7 @@
 
                     <h4 class="page-title">Dashboard</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">Welcome to Supply Software Dashboard</li>
+                        <li class="breadcrumb-item active">Hi, <span class="badge badge-danger"> <?php if(isset($_SESSION['fullName'])){echo $_SESSION['fullName'];} ?>  </span>  Welcome to Omega Dashboard</li>
                     </ol>
 
                 </div>

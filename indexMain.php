@@ -215,23 +215,15 @@
 
                                         <tr>
                                             <td>1</td>
-                                            <td>
-                                               
-                                                    Ralph Shockey
-                                               
-                                            </td>
-                                            <td>18/8/2018
-                                                <p class="font-13 text-muted mb-0">10:18AM</p>
-                                            </td>
+                                            <td>   Ralph Shockey </td>
+                                            <td>18/8/2018  10:18AM   </td>
                                             <td>$112</td>
-                                            <td><span class="badge badge-warning badge-pill"><i
-                                                        class="mdi mdi-checkbox-blank-circle text-warning"></i>
-                                                    Pending</span></td>
                                             <td>
-                                                <div>
-                                                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                </div>
+                                                <span class="badge badge-warning badge-pill"><i
+                                                        class="mdi mdi-checkbox-blank-circle text-warning"></i>
+                                                    Pending</span>
                                             </td>
+                                            <td> <a href="#" class="btn btn-primary btn-sm">Edit</a></td>
                                         </tr>
                                        
                                     </tbody>

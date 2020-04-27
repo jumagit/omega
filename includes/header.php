@@ -6,10 +6,7 @@ ob_start();
 session_start();
 
 
-if(
-    !isset($_SESSION['username'])
-   
-){
+if( !isset($_SESSION['client_id'])){
 
     header('Location:index.php');
 }
@@ -41,6 +38,8 @@ include "includes/functions.php";
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="plugins/chartist/css/chartist.min.css">
+    <link href="plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>

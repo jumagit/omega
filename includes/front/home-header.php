@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
 
         //fetching credentials from the database
 
-        $sql = "SELECT * FROM users WHERE username = '$username'";
+        $sql = "SELECT * FROM clients WHERE username = '$username'";
 
         $result = query($sql);
 
@@ -41,7 +41,7 @@ if (isset($_POST['login'])) {
 
             $hashed_password = md5($password);
 
-            $mainSql = "SELECT * FROM users WHERE username = '$username' AND password = '$hashed_password'";
+            $mainSql = "SELECT * FROM clients WHERE username = '$username' AND password = '$hashed_password'";
 
             $result2 = query($mainSql);
 
@@ -54,13 +54,12 @@ if (isset($_POST['login'])) {
                     session_regenerate_id();
 
                     $_SESSION['username'] = $row['username'];
-                    $_SESSION['user_id'] = $row['user_id'];
+                    $_SESSION['client_id'] = $row['client_id'];
                     $_SESSION['computerName'] = $computer;
-                    $_SESSION['fullName'] = $row['sname'] . '' . $row['fname'];
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['accountType'] = $row['accountType'];
+                    $_SESSION['fullName'] = $row['fullName'];
+                    $_SESSION['email'] = $row['email'];                    
                     $_SESSION['mobile'] = $row['mobile'];
-                    $_SESSION['gender'] = $row['gender'];
+                  
 
                     session_write_close();
 
@@ -69,7 +68,7 @@ if (isset($_POST['login'])) {
                         if (writeLog("logged in from {$IP}", $_SESSION['username'], "SUCCESS")) {
                             $doLoginFeedback = "<div class='alert alert-success bg-success ' >                       
                          <p class='text-white '>  <strong> <i class='mdi mdi-checkbox-marked-circle-outline'></i> Credentials Accepted,  Signing you in ..............</p>
-                        <script type='text/javascript'>setTimeout(function() { window.location.href = 'indexMain.php';}, 3000);</script>
+                        <script type='text/javascript'>setTimeout(function() { window.location.href = 'indexClient.php';}, 3000);</script>
                         </div>";
                         }
 
@@ -77,7 +76,7 @@ if (isset($_POST['login'])) {
 
                         $doLoginFeedback = "<div class='alert alert-danger bg-danger message' >                       
                         <p class='text-white font-weight-bold'> <strong> <i class='mdi mdi-close-circle'></i> Sorry!</strong>, Check your Password or Username Used.</p>
-                       <script type='text/javascript'>setTimeout(function() { window.location.href = 'index.php';}, 3000);</script>
+                       <script type='text/javascript'>setTimeout(function() { window.location.href = 'signin.php';}, 3000);</script>
                        </div>";
 
                     }

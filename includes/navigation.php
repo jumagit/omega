@@ -6,8 +6,8 @@
                     <div class="logo">
                         
                         <a href="indexMain.php" class="logo">
-                             <img src="assets/images/logo.png" alt="" class="logo-small">
-                            <img src="assets/images/logo.png" alt="" class="logo-large"> 
+                             <!-- <img src="assets/images/logo-white.png" width="150" alt="logo" class="logo-small"> -->
+                            <img src="assets/images/logo-white.png" alt="logo" width="150" height="50px" class="logo-large"> 
                            
                         </a>
 

@@ -58,6 +58,8 @@ function clean($input)
     }
 
     $input = mysqli_real_escape_string($connection, $input);
+
+    $input = trim($input);
     return $input;
 }
 

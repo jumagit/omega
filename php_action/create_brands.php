@@ -1,27 +1,74 @@
-<?php 	
+<?php
 
-require_once 'core.php';
+include "check_if_logged_in.php";
 
-$valid['success'] = array('success' => false, 'messages' => array());
+require "../includes/db.php";
 
-if($_POST) {	
+// inserting brands
 
-	$brandName = $_POST['brandName'];
-  $brandStatus = $_POST['brandStatus']; 
+if ($_REQUEST['t'] == 'true') {
 
-	$sql = "INSERT INTO brands (brand_name, brand_active, brand_status) VALUES ('$brandName', '$brandStatus', 1)";
+    if (isset($_SESSION['fullName'])) {
+        $created_by = $_SESSION['fullName'];
+    }
 
-	if($connect->query($sql) === TRUE) {
-	 	$valid['success'] = true;
-		$valid['messages'] = "Successfully Added";	
-	} else {
-	 	$valid['success'] = false;
-	 	$valid['messages'] = "Error while adding the members";
-	}
-	 
+    $brandName = clean($_POST['brand_name']);
+    $brandStatus = clean($_POST['brandStatus']);
 
-	$connect->close();
+    $sql = "INSERT INTO brands (brand_name, brand_active, brand_status,created_by) VALUES ('$brandName', '$brandStatus', 1,'$created_by')";
 
-	echo json_encode($valid);
- 
-} // /if $_POST
+    $query = query($sql);
+
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+
+}
+
+if ($_REQUEST['t'] == 'delete') {
+    $id = $_GET['id'];
+    $query = query("DELETE FROM brands WHERE brand_id='{$id}'");
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+}
+
+
+if ($_REQUEST['t'] == 'available') {
+    $id = $_GET['id'];
+    $query = query("UPDATE  brands  SET brand_status = '1' WHERE brand_id='{$id}'");
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+}
+
+
+
+if ($_REQUEST['t'] == 'notavailable') {
+    $id = $_GET['id'];
+    $query = query("UPDATE  brands  SET brand_status = '0' WHERE brand_id='{$id}'");
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+}

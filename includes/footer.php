@@ -37,15 +37,8 @@
      <script src="plugins/parsleyjs/parsley.min.js"></script>
 
      <!-- Datatable init js -->
-     <script src="assets/pages/datatables.init.js"></script>
-
-     <!-- Peity JS -->
-     <script src="plugins/peity/jquery.peity.min.js"></script>
-
-     <script src="plugins/morris/morris.min.js"></script>
-     <script src="plugins/raphael/raphael-min.js"></script>
-
-     <script src="assets/pages/dashboard.js"></script>
+     <script src="assets/pages/datatables.init.js"></script>  
+  
 
       <!--Chartist Chart-->
       <script src="plugins/chart.js/chart.min.js"></script>
@@ -99,6 +92,60 @@
     },
     //init
     ChartJs.prototype.init = function() {
+
+
+        //Pie chart
+        var pieChart = {
+            labels: [
+                "Sales",
+                "Tablets",
+                "Orders",
+                "Clients",
+                "users"
+            ],
+            datasets: [
+                {
+                    data: [300, 180,30,343,40],
+                    backgroundColor: [
+                        "#35a989",
+                        "#e333f2",
+                        "#43a232",
+                        "#9e1232",
+                        "#43eee2"
+                    ],
+                    hoverBackgroundColor: [
+                        "#35a989",
+                        "#eea989",
+                        "#ebeff2",
+                        "#ff9012",
+                        "#dd9012"
+                    ],
+                    hoverBorderColor: "#fff"
+                }]
+        };
+        this.respChart($("#pie"),'Pie',pieChart);
+
+
+        
+
+        //barchart
+        var barChart = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                    label: "Sales Analytics",
+                    backgroundColor: "#35a989",
+                    borderColor: "#35a989",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "#35a989",
+                    hoverBorderColor: "#35a989",
+                    data: [65, 59, 81, 45, 56, 80, 50,20]
+                }
+            ]
+        };
+        this.respChart($("#bar"),'Bar',barChart);
+
+
         //creating lineChart
         var lineChart = {
             labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September","October"],

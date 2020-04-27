@@ -5,10 +5,10 @@
                     <!-- Logo container-->
                     <div class="logo">
                         
-                        <a href="index.html" class="logo">
-                            <!-- <img src="assets/images/logo-sm-light.png" alt="" class="logo-small">
-                            <img src="assets/images/logo-light.png" alt="" class="logo-large"> -->
-                           <h3 class="text-white"> Online Trade</h3> 
+                        <a href="indexMain.php" class="logo">
+                             <img src="assets/images/logo.png" alt="" class="logo-small">
+                            <img src="assets/images/logo.png" alt="" class="logo-large"> 
+                           
                         </a>
 
                     </div>

@@ -153,7 +153,7 @@ if (isset($_POST['login'])) {
           <!-- Logo
           ============================================= -->
           <div class="logo">
-          	<a href="index.html" title="Quickai - HTML Template"><img src="frontend/images/logo.png" alt="Quickai" width="127" height="29" /></a>
+          	<a href="index.php" title="Quickai - HTML Template"><img src="frontend/images/logo.png" alt="Quickai" width="127" height="29" /></a>
           </div><!-- Logo end -->
           
         </div>
@@ -167,9 +167,9 @@ if (isset($_POST['login'])) {
               <ul class="navbar-nav">
 			  <li class="dropdown"> <a class="dropdown-toggle" href="#">Home</a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="faq.html">Faq</a></li>
-                    <li><a class="dropdown-item" href="support.html">Support</a></li>
-                    <li><a class="dropdown-item" href="contact-us.html">Contact Us</a></li>
+                    <li><a class="dropdown-item" href="faq.php">Faq</a></li>
+                    <li><a class="dropdown-item" href="support.php">Support</a></li>
+                    <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                   </ul>
                 </li>
                 <li class="login-signup ml-lg-2"><a class="pl-lg-4 pr-0"  href="signin.php" title="Login ">Login <span class="d-none d-lg-inline-block bg-primary"><i class="fa fa-user"></i></span></a></li>

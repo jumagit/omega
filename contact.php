@@ -2,7 +2,7 @@
 
 <!-- Content
   ============================================= -->
-  <div id="content" style="padding-top:20px">
+  <div id="content" style="padding-top:20px;padding-bottom:20px">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -15,7 +15,7 @@
             <h2 class="text-6">Get in touch</h2>
             <p class="text-3">For Customer Support and Query, Get in touch with us: <a href="#">Help</a></p>
             <div class="featured-box style-1">
-              <div class="featured-box-icon text-primary"> <i class="fas fa-map-marker-alt"></i></div>
+              <div class="featured-box-icon text-primary"> <i class="fa fa-map"></i></div>
               <h3>Quickai Inc.</h3>
               <p>4th Floor, Plot No.22, Above Public Park<br>
                 145 Murphy Canyon Rd.<br>
@@ -23,12 +23,12 @@
                 San Diego CA 2028 </p>
             </div>
             <div class="featured-box style-1">
-              <div class="featured-box-icon text-primary"> <i class="fas fa-phone"></i> </div>
+              <div class="featured-box-icon text-primary"> <i class="fa fa-phone"></i> </div>
               <h3>Telephone</h3>
               <p>(+060) 9898980098, (+060) 8898880088</p>
             </div>
             <div class="featured-box style-1">
-              <div class="featured-box-icon text-primary"> <i class="fas fa-envelope"></i> </div>
+              <div class="featured-box-icon text-primary"> <i class="fa fa-envelope"></i> </div>
               <h3>Business Inquiries</h3>
               <p>info@quickai.com</p>
             </div>

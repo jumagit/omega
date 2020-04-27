@@ -673,7 +673,7 @@ body {
 }
 
 #topnav .topbar-main {
-    background-color: #343A40;
+    background-color: #005FA0;
 }
 
 #topnav .topbar-main .logo {
@@ -771,7 +771,7 @@ body {
 #topnav .navigation-menu>li>a {
     display: block;
     /* color: rgba(42, 49, 66, 0.7);*/
-    color: orange;
+    color: #005FA0;
     font-weight: bold;
     text-transform: capitalize;
     font-size: 16px;

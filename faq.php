@@ -2,7 +2,7 @@
 
 <!-- Content
   ============================================= -->
-<div id="content" style="padding-top:30px;">
+<div id="content" style="padding-top:20px;padding-bottom:20px">
     <div class="container">
         <div class="bg-light shadow-md rounded p-4">
             <h3 class="text-6">Get answers to your queries</h3>

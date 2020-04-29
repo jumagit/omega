@@ -12,10 +12,16 @@ if ($_REQUEST['t'] == 'true') {
         $created_by = $_SESSION['fullName'];
     }
 
-    $brandName = clean($_POST['brand_name']);
-    $brandStatus = clean($_POST['brandStatus']);
+    $fullName = clean($_POST['fullName']);
+    $username = clean($_POST['username']);
+    $location = clean($_POST['location']);
+    $mobile = clean($_POST['mobile']);
+    $email = clean($_POST['email']);
+    $password = generatePassword();
+    $newpass =  md5($password);
 
-    $sql = "INSERT INTO brands (brand_name, brand_active, brand_status,created_by) VALUES ('$brandName', '$brandStatus', 1,'$created_by')";
+    $sql = "INSERT INTO clients (fullName,email,mobile,location,username,password,cpassword,created_by)
+     VALUES ('$fullName', '$email', '$mobile', '$location', '$username', '$newpass','$password', '$created_by')";
 
     $query = query($sql);
 
@@ -29,14 +35,13 @@ if ($_REQUEST['t'] == 'true') {
     header('Content-Type: application/json');
     echo $dataX;
 
-
     $connection->close();
 
 }
 
 if ($_REQUEST['t'] == 'delete') {
     $id = $_GET['id'];
-    $query = query("DELETE FROM brands WHERE brand_id='{$id}'");
+    $query = query("DELETE FROM clients WHERE client_id='{$id}'");
     if ($query) {
         $feed_back = array('status' => true, 'msg' => 'success');
     } else {

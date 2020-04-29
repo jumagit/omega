@@ -1,45 +1,94 @@
-<?php 	
+<?php
 
-require_once 'core.php';
+include "check_if_logged_in.php";
 
-$valid['success'] = array('success' => false, 'messages' => array());
+require "../includes/db.php";
 
-if($_POST) {	
+// inserting products
 
-	$productName 		= $_POST['productName'];
-  // $productImage 	= $_POST['productImage'];
-  $quantity 			= $_POST['quantity'];
-  $rate 					= $_POST['rate'];
-  $brandName 			= $_POST['brandName'];
-  $categoryName 	= $_POST['categoryName'];
-  $productStatus 	= $_POST['productStatus'];
+if ($_REQUEST['t'] == 'true') {
 
-	$type = explode('.', $_FILES['productImage']['name']);
-	$type = $type[count($type)-1];		
-	$url = '../assests/images/stock/'.uniqid(rand()).'.'.$type;
-	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png', 'JPG', 'GIF', 'JPEG', 'PNG'))) {
-		if(is_uploaded_file($_FILES['productImage']['tmp_name'])) {			
-			if(move_uploaded_file($_FILES['productImage']['tmp_name'], $url)) {
-				
-				$sql = "INSERT INTO product (product_name, product_image, brand_id, categories_id, quantity, rate, active, status) 
-				VALUES ('$productName', '$url', '$brandName', '$categoryName', '$quantity', '$rate', '$productStatus', 1)";
+    if (isset($_SESSION['fullName'])) {
+        $created_by = $_SESSION['fullName'];
+    }
 
-				if($connect->query($sql) === TRUE) {
-					$valid['success'] = true;
-					$valid['messages'] = "Successfully Added";	
-				} else {
-					$valid['success'] = false;
-					$valid['messages'] = "Error while adding the members";
-				}
+    $productName = clean($_POST['productName']);    
+    $quantity = clean($_POST['quantity']);
+    $rate =     clean($_POST['rate']);
+    $brandName = clean($_POST['brandName']);
+    $categoryName = clean($_POST['categoryName']);
+    $productStatus = clean($_POST['productStatus']);
 
-			}	else {
-				return false;
-			}	// /else	
-		} // if
-	} // if in_array 		
+    $type = explode('.', $_FILES['productImage']['name']);
+    $type = $type[count($type) - 1];
+    $url = '../assets/images/stock/' . uniqid(rand()) . '.' . $type;
+    if (in_array($type, array('gif', 'jpg', 'jpeg', 'png', 'JPG', 'GIF', 'JPEG', 'PNG'))) {
+        if (is_uploaded_file($_FILES['productImage']['tmp_name'])) {
+            if (move_uploaded_file($_FILES['productImage']['tmp_name'], $url)) {
 
-	$connect->close();
+                $sql = "INSERT INTO products (product_name, product_image, brand_id, categories_id, quantity, rate, active, status, created_by)
+				VALUES ('$productName', '$url', '$brandName', '$categoryName', '$quantity', '$rate', '$productStatus', 1, '$created_by')";
+                $query = query($sql);
+                if ($query) {
+                    $feed_back = array('status' => true, 'msg' => 'success');
+                } else {
+                    $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+                }
 
-	echo json_encode($valid);
- 
-} // /if $_POST
+                $dataX = json_encode($feed_back);
+                header('Content-Type: application/json');
+                echo $dataX;
+
+            } else {
+                return false;
+            } // /else
+        } // if
+    } // if in_array
+
+    $connection->close();
+
+}
+
+
+
+if ($_REQUEST['t'] == 'delete') {
+    $id = $_GET['id'];
+    $query = query("DELETE FROM products WHERE product_id='{$id}'");
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+}
+
+
+if ($_REQUEST['t'] == 'available') {
+    $id = $_GET['id'];
+    $query = query("UPDATE  products  SET status = '1' WHERE brand_id='{$id}'");
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+}
+
+
+
+if ($_REQUEST['t'] == 'notavailable') {
+    $id = $_GET['id'];
+    $query = query("UPDATE  products  SET status = '2' WHERE brand_id='{$id}'");
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+}

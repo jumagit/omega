@@ -1,27 +1,48 @@
-<?php 	
+<?php
 
-require_once '../includes/db.php';
+include "check_if_logged_in.php";
 
-$valid['success'] = array('success' => false, 'messages' => array());
+require "../includes/db.php";
 
-if($_POST) {	
+// inserting brands
 
-	$categoriesName = $_POST['categoriesName'];
-  $categoriesStatus = $_POST['categoriesStatus']; 
+if ($_REQUEST['t'] == 'true') {
 
-	$sql = "INSERT INTO categories (categories_name, categories_active, categories_status) 
-	VALUES ('$categoriesName', '$categoriesStatus', 1)";
+    $currentPassword = md5(clean($_POST['currentPassword']));
+    $newPassword = md5(clean($_POST['newPassword']));
+    $confirmPassword = md5(clean($_POST['confirmPassword']));
+    $userId = clean($_POST['puser_id']);
 
-	if($connect->query($sql) === TRUE) {
-	 	$valid['success'] = true;
-		$valid['messages'] = "Successfully Added";	
-	} else {
-	 	$valid['success'] = false;
-	 	$valid['messages'] = "Error while adding the members";
-	}
+    $sql = "SELECT * FROM users WHERE user_id = {$userId}";
+    $query = query($sql);
+    $result = $query->fetch_assoc();
 
-	$connect->close();
+    if ($currentPassword == $result['password']) {
 
-	echo json_encode($valid);
- 
+        if ($newPassword == $confirmPassword) {
+
+            $updateSql = "UPDATE users SET password = '$newPassword' WHERE user_id = {$userId}";
+            $query = query($updateSql);
+            if ($query) {
+                $feed_back = array('status' => true, 'msg' => 'success');
+            } else {
+                $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+            }
+
+        } else {
+            $feed_back = array('status' => false, 'msg' => 'New password does not match with Conform password');
+
+        }
+
+    } else {
+        $feed_back = array('status' => false, 'msg' => 'Current password is incorrect');
+
+    }
+
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+
+    $connection->close();
+
 } // /if $_POST

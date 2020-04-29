@@ -4,6 +4,22 @@
        <?php include"includes/navigation.php"; ?>
         <!-- End Navigation Bar-->
 
+        <?php   
+        
+        
+        
+            $user_id = $_SESSION['userId'];
+            $sql = "SELECT * FROM users WHERE user_id = {$user_id}";
+            $query = query($sql);
+            $result = $query->fetch_assoc();
+
+            $connection->close();
+
+
+
+
+        ?>
+
         <!-- page wrapper start -->
         <div class="wrapper">
             <div class="page-title-box">
@@ -53,10 +69,11 @@
                                       
                                        <div class="form-group row">
                                         <div class="col-sm-3">
-                                            <label for="brandName">Username :</label>
+                                            <label for="username">Username :</label>
                                         </div>  
                                         <div class="col-sm-9">
-                                            <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                                            <input type="hidden" name="user_id" id="user_id" value="<?php echo $result['user_id'] ?>" /> 
+                                            <input type="text" name="username" class="form-control" value="<?php echo $result['username']; ?>">
                                         </div>                                        
                                     </div>
 
@@ -83,7 +100,7 @@
 
                                     <h4 class="mt-0 header-title">Change Password</h4>
                                     <hr>
-                                    <p class="text-muted m-b-30">Here you view All registered Plane
+                                    <p class="text-muted m-b-30">Here you can change your Password
                                     </p>
 
                                     <form action="" id="changePassword">
@@ -103,22 +120,22 @@
                                             <label for="password">New Password :</label>
                                         </div>  
                                         <div class="col-sm-9">
-                                            <input type="password" name="password" class="form-control" placeholder="Enter your Favourite Password">
+                                            <input type="password" name="newPassword" class="form-control" placeholder="Enter your Favourite Password">
                                         </div>                                        
                                     </div>
 
                                        <div class="form-group row">
                                           <div class="col-sm-3">
-                                            <label for="rePassword">Confirm Password :</label>
+                                            <label for="confirmPassword">Confirm Password :</label>
                                         </div>  
                                         <div class="col-sm-9">
-                                            <input type="password" name="rePassword" class="form-control" placeholder="Confirm Your Chosen Password">
+                                            <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Your Chosen Password">
                                         </div>                                        
                                     </div>
 
 
                                       <div class="form-group float-right">
-                                      
+                                      <input type="hidden" name="puser_id" id="puser_id" value="<?php echo $result['user_id'] ?>" /> 
                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
                                                   <i class="mdi mdi-content-save"></i>  Change Password 
                                       </button>

@@ -146,3 +146,111 @@ function fetch_brands()
 
     return $output;
 }
+
+//fetch clients
+function fetch_clients()
+{
+
+    $sql = "SELECT * FROM clients ORDER BY client_id DESC";
+
+    $result = query($sql);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $output = "";
+
+        $count = 0;
+
+        while ($trailRow = mysqli_fetch_array($result)) {
+
+            $count++;
+            $client_id = $trailRow['client_id'];
+            $fullName = $trailRow['fullName'];
+            $email = $trailRow['email'];
+            $username = $trailRow['username'];
+            $mobile = $trailRow['mobile'];
+            $location = $trailRow['location'];
+           
+
+            $output .= "<tr>
+           <td>{$count}</td>
+           <td>{$fullName}</td>
+           <td>{$email}</td>  
+           <td>{$username}</td> 
+           <td>{$mobile}</td>       
+           <td>{$location}</td>
+           <td><a href='edit_clients.php?edit={$client_id}' ><i class='fa fa-edit'></i></a></td>
+           <td><a onclick='deleteClient($client_id)' class='text-danger'><i class='fa fa-trash'></i></a></td>
+           </tr>";
+
+        }
+
+    }
+
+    return $output;
+}
+
+
+//fetch products 
+
+
+function fetch_products()
+{
+
+    $sql = "SELECT products.product_id, products.product_name, products.product_image, products.brand_id,
+    products.categories_id, products.quantity, products.rate, products.active, products.status, 
+    brands.brand_name, categories.categories_name FROM products 
+   INNER JOIN brands ON products.brand_id = brands.brand_id 
+   INNER JOIN categories ON products.categories_id = categories.categories_id  
+   WHERE  products.quantity>0";
+
+    $result = query($sql);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $output = "";
+
+        $count = 0;
+
+        while ($trailRow = mysqli_fetch_array($result)) {
+
+            $count++;
+            $product_id = $trailRow[0];
+           // $product_image = $trailRow[2];
+            $product_image  = substr($trailRow[2], 3);
+            $product_brand = $trailRow[10];
+            $product_category = $trailRow[9];
+            $product_name = $trailRow[1];          
+            $quantity = $trailRow[6];
+            $status  =  $trailRow[8];
+
+            if ($status == 1) {
+                $status = "Available";
+            }else{
+                $status = "Not Available"; 
+
+            }
+           
+           
+
+            $output .= "<tr>
+           <td>{$count}</td>
+           <td><img src='{$product_image}' width='50' height='50' alt='Product Image'></td>
+           <td>{$product_name}</td>  
+           <td>{$quantity}</td> 
+           <td>{$product_brand}</td>       
+           <td>{$product_category}</td>
+           <td>{$status}</td>
+           <td><a onclick='pMakeAvailable($product_id)' class='text-info'><i class='fa fa-th'></i> Available  </a></td>
+           <td><a onclick='pNotAvailable($product_id)' class='text-success'><i class='fa fa-list'></i> Not Available  </a></td>
+           <td><a href='edit_products.php?edit={$product_id}' ><i class='fa fa-edit'></i></a></td>
+           <td><a onclick='deleteProduct($product_id)' class='text-danger'><i class='fa fa-trash'></i></a></td>
+           </tr>";
+
+        }
+
+    }
+
+    echo $output;
+}
+

@@ -88,7 +88,7 @@ function writeLog($activity, $username, $log_type)
     $month = date('F');
     $day = date('j');
     $year = date('Y');
-    $activity_time = date('l j<\s\u\p>S</\s\u\p>, F Y (h:i:s A)');    
+    $activity_time = date('l j<\s\u\p>S</\s\u\p>, F Y (h:i:s A)');
     $sql = "INSERT INTO system_access_logs (activity, day, month, year, username, activity_time, log_type)
      VALUES ( '$activity', '$day', '$month', '$year', '$username', '$activity_time', '$log_type')";
     $result = query($sql);
@@ -183,6 +183,51 @@ function subscriber_user()
         $query = "UPDATE users SET user_status = 'Subscriber' WHERE StdNo = {$the_user_id}";
         $admin_query = mysqli_query($connection, $query);
     }
+}
+
+function generatePassword($length = 9, $add_dashes = false, $available_sets = 'luds')
+{
+    $sets = array();
+    if (strpos($available_sets, 'l') !== false) {
+        $sets[] = 'abcdefghjkmnpqrstuvwxyz';
+    }
+
+    if (strpos($available_sets, 'u') !== false) {
+        $sets[] = 'ABCDEFGHJKMNPQRSTUVWXYZ';
+    }
+
+    if (strpos($available_sets, 'd') !== false) {
+        $sets[] = '23456789';
+    }
+
+    if (strpos($available_sets, 's') !== false) {
+        $sets[] = '!@#$%&*?';
+    }
+
+    $all = '';
+    $password = '';
+    foreach ($sets as $set) {
+        $password .= $set[array_rand(str_split($set))];
+        $all .= $set;
+    }
+    $all = str_split($all);
+    for ($i = 0; $i < $length - count($sets); $i++) {
+        $password .= $all[array_rand($all)];
+    }
+
+    $password = str_shuffle($password);
+    if (!$add_dashes) {
+        return $password;
+    }
+
+    $dash_len = floor(sqrt($length));
+    $dash_str = '';
+    while (strlen($password) > $dash_len) {
+        $dash_str .= substr($password, 0, $dash_len) . '-';
+        $password = substr($password, $dash_len);
+    }
+    $dash_str .= $password;
+    return $dash_str;
 }
 
 ?>

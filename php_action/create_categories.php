@@ -1,27 +1,35 @@
-<?php 	
+<?php
 
-require_once '../includes/db.php';
+include "check_if_logged_in.php";
 
-$valid['success'] = array('success' => false, 'messages' => array());
+require "../includes/db.php";
 
-if($_POST) {	
+// inserting brands
 
-	$categoriesName = $_POST['categoriesName'];
-  $categoriesStatus = $_POST['categoriesStatus']; 
+if ($_REQUEST['t'] == 'true') {
 
-	$sql = "INSERT INTO categories (categories_name, categories_active, categories_status) 
-	VALUES ('$categoriesName', '$categoriesStatus', 1)";
+    if (isset($_SESSION['fullName'])) {
+        $created_by = $_SESSION['fullName'];
+    }
 
-	if($connect->query($sql) === TRUE) {
-	 	$valid['success'] = true;
-		$valid['messages'] = "Successfully Added";	
-	} else {
-	 	$valid['success'] = false;
-	 	$valid['messages'] = "Error while adding the members";
-	}
+    $categoriesName = $_POST['categoriesName'];
+    $categoriesStatus = $_POST['categoriesStatus'];
 
-	$connect->close();
+    $sql = "INSERT INTO categories (categories_name, categories_active, categories_status,created_by)
+	VALUES ('$categoriesName', '$categoriesStatus', '1','$created_by')";
 
-	echo json_encode($valid);
- 
+    $query = query($sql);
+
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+
+    $connection->close();
+
 } // /if $_POST

@@ -1,0 +1,8 @@
+system url : supplysystem.mediaconsultants.co.ug
+cpanel username :
+cpanel Password : 
+database credentials online
+
+databaseName :     mediaconsultants_store
+databaseUsername : mediaconsultants_supplysystem
+databasePassword : 0702499649juma

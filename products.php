@@ -163,6 +163,17 @@
                                 </div> <!-- /form-group-->
 
                                 <div class="form-group row">
+                                    <label for="quantity" class="col-sm-3 control-label">Price: </label>
+                                    <label class="col-sm-1 control-label">: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="price"   data-type="currency" placeholder="Product Price"
+                                            name="price" autocomplete="off">
+                                    </div>
+                                </div> <!-- /form-group-->
+
+                               
+
+                                <div class="form-group row">
                                     <label for="rate" class="col-sm-3 control-label">Rate: </label>
                                     <label class="col-sm-1 control-label">: </label>
                                     <div class="col-sm-8">

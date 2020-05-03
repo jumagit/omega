@@ -44,8 +44,8 @@
                             <div class="card m-b-20">
                                 <div class="card-body">
 
-                                    <h4 class="mt-0 header-title">Plane Page</h4>
-                                    <p class="text-muted m-b-30">Here you view All registered Plane
+                                    <h4 class="mt-0 header-title">Create Order</h4>
+                                    <p class="text-muted m-b-30">Here you can create customer Order
                                     </p>
 
                                   

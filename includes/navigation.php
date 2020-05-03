@@ -140,6 +140,11 @@
 
                             <li class="has-submenu">
                                 <a href="orders.php"><i class="mdi mdi-cart-plus"></i>Orders</a>
+                                <ul class="submenu">
+                                    <li><a href="create_order.php">Create Order</a></li>
+                                    <!-- <li><a href="email-read.html">Email Read</a></li> -->
+                                    
+                                </ul>
                             </li>
 
                             <li class="has-submenu">

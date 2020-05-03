@@ -1,3 +1,16 @@
+function removeProductRow(row = null) {
+    if (row) {
+        $("#row" + row).remove();
+
+
+        // subAmount();
+    } else {
+        alert('error! Refresh the page again');
+    }
+}
+
+
+
 $(document).on("submit", "#addCategoryForm", function(e) {
     e.preventDefault();
 
@@ -9,10 +22,10 @@ $(document).on("submit", "#addCategoryForm", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -24,11 +37,13 @@ $(document).on("submit", "#addCategoryForm", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! A New Category has been Created Successfully!",
-                            type: "success"
+                            text: 'Good Job! A New Category has been Created Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -54,6 +69,7 @@ $(document).on("submit", "#addCategoryForm", function(e) {
     });
 });
 
+
 //brand begins
 
 $(document).on("submit", "#addBrandForm", function(e) {
@@ -67,10 +83,10 @@ $(document).on("submit", "#addBrandForm", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -82,11 +98,13 @@ $(document).on("submit", "#addBrandForm", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! A New Brand has been Created Successfully!",
-                            type: "success"
+                            text: 'Good Job! A New Brand has been Created Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -112,6 +130,8 @@ $(document).on("submit", "#addBrandForm", function(e) {
     });
 });
 
+
+
 function deleteBrand(id) {
     var id = id;
     swal({
@@ -120,26 +140,29 @@ function deleteBrand(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_brands.php?t=delete&id=" + id,
+                url: 'php_action/create_brands.php?t=delete&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Brand has been deleted!!",
-                            type: "success"
+                            text: ' While you wait a Brand has been deleted!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -157,10 +180,12 @@ function deleteBrand(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
+
 
 function makeAvailable(id) {
     var id = id;
@@ -170,26 +195,29 @@ function makeAvailable(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_brands.php?t=available&id=" + id,
+                url: 'php_action/create_brands.php?t=available&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Brand has been changed to Available!!",
-                            type: "success"
+                            text: ' While you wait a Brand has been changed to Available!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -207,10 +235,12 @@ function makeAvailable(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
+
 
 function notAvailable(id) {
     var id = id;
@@ -220,26 +250,29 @@ function notAvailable(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_brands.php?t=notavailable&id=" + id,
+                url: 'php_action/create_brands.php?t=notavailable&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Brand has been changed to Not Available!!",
-                            type: "success"
+                            text: ' While you wait a Brand has been changed to Not Available!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -257,12 +290,14 @@ function notAvailable(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
 
-//clients
+
+//clients  
+
 
 $(document).on("submit", "#addClientForm", function(e) {
     e.preventDefault();
@@ -275,10 +310,10 @@ $(document).on("submit", "#addClientForm", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -290,11 +325,13 @@ $(document).on("submit", "#addClientForm", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! A New client has been Created Successfully!",
-                            type: "success"
+                            text: 'Good Job! A New client has been Created Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -320,6 +357,7 @@ $(document).on("submit", "#addClientForm", function(e) {
     });
 });
 
+
 function deleteClient(id) {
     var id = id;
     swal({
@@ -328,26 +366,29 @@ function deleteClient(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_clients.php?t=delete&id=" + id,
+                url: 'php_action/create_clients.php?t=delete&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Client has been deleted!!",
-                            type: "success"
+                            text: ' While you wait a Client has been deleted!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -365,10 +406,13 @@ function deleteClient(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
+
+
 
 $(document).on("submit", "#submitProductForm", function(e) {
     e.preventDefault();
@@ -381,10 +425,10 @@ $(document).on("submit", "#submitProductForm", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -396,11 +440,13 @@ $(document).on("submit", "#submitProductForm", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! A New Product has been Created Successfully!",
-                            type: "success"
+                            text: 'Good Job! A New Product has been Created Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -426,6 +472,7 @@ $(document).on("submit", "#submitProductForm", function(e) {
     });
 });
 
+
 function deleteProduct(id) {
     var id = id;
     swal({
@@ -434,26 +481,29 @@ function deleteProduct(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_products.php?t=delete&id=" + id,
+                url: 'php_action/create_products.php?t=delete&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Product has been deleted!!",
-                            type: "success"
+                            text: ' While you wait a Product has been deleted!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -471,10 +521,12 @@ function deleteProduct(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
+
 
 function pMakeAvailable(id) {
     var id = id;
@@ -484,26 +536,29 @@ function pMakeAvailable(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_products.php?t=available&id=" + id,
+                url: 'php_action/create_products.php?t=available&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Product has been changed to Available!!",
-                            type: "success"
+                            text: ' While you wait a Product has been changed to Available!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -521,10 +576,12 @@ function pMakeAvailable(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
+
 
 function pNotAvailable(id) {
     var id = id;
@@ -534,26 +591,29 @@ function pNotAvailable(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_products.php?t=notavailable&id=" + id,
+                url: 'php_action/create_products.php?t=notavailable&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait a Product has been changed to Not Available!!",
-                            type: "success"
+                            text: ' While you wait a Product has been changed to Not Available!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -571,14 +631,16 @@ function pNotAvailable(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
 
 //user section
 
+
 //changing username
+
 
 $(document).on("submit", "#changeUsername", function(e) {
     e.preventDefault();
@@ -591,10 +653,10 @@ $(document).on("submit", "#changeUsername", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -606,11 +668,13 @@ $(document).on("submit", "#changeUsername", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! Username Changed Successfully!",
-                            type: "success"
+                            text: 'Good Job! Username Changed Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -638,6 +702,7 @@ $(document).on("submit", "#changeUsername", function(e) {
 
 //change password
 
+
 $(document).on("submit", "#changePassword", function(e) {
     e.preventDefault();
 
@@ -649,10 +714,10 @@ $(document).on("submit", "#changePassword", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -664,11 +729,13 @@ $(document).on("submit", "#changePassword", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! Password Changed Successfully!",
-                            type: "success"
+                            text: 'Good Job! Password Changed Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -694,6 +761,7 @@ $(document).on("submit", "#changePassword", function(e) {
     });
 });
 
+
 //addUserForm
 
 $(document).on("submit", "#addUserForm", function(e) {
@@ -707,10 +775,10 @@ $(document).on("submit", "#addUserForm", function(e) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
     }).then(willSave => {
         if (willSave) {
@@ -722,11 +790,13 @@ $(document).on("submit", "#addUserForm", function(e) {
                 success: function(result) {
                     //console.log(result);
                     if (result.status) {
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: "Good Job! A New User has been Created Successfully!",
-                            type: "success"
+                            text: 'Good Job! A New User has been Created Successfully!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -754,6 +824,8 @@ $(document).on("submit", "#addUserForm", function(e) {
 
 //make admin
 
+
+
 function makeAdmin(id) {
     var id = id;
     swal({
@@ -762,26 +834,29 @@ function makeAdmin(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_users.php?t=admin&id=" + id,
+                url: 'php_action/create_users.php?t=admin&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait, a User has been changed to Administrator!!",
-                            type: "success"
+                            text: ' While you wait, a User has been changed to Administrator!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -799,10 +874,11 @@ function makeAdmin(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
 
 //revoke admin
 
@@ -814,26 +890,29 @@ function revokeAdmin(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_users.php?t=notadmin&id=" + id,
+                url: 'php_action/create_users.php?t=notadmin&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait, Administration Previlages have been removed Successifully!!",
-                            type: "success"
+                            text: ' While you wait, Administration Previlages have been removed Successifully!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -851,10 +930,11 @@ function revokeAdmin(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
+
 
 //deactivate account
 
@@ -866,26 +946,29 @@ function deactivateAccount(id) {
         type: "info",
         padding: 20,
         showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No, cancel!",
-        confirmButtonClass: "btn btn-success",
-        cancelButtonClass: "btn btn-danger m-l-10",
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger m-l-10',
         buttonsStyling: false
-    }).then(willSave => {
+    }).then((willSave) => {
         if (willSave) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "php_action/create_users.php?t=deactivateAccount&id=" + id,
+                url: 'php_action/create_users.php?t=deactivateAccount&id=' + id,
 
                 success: function(result) {
                     console.log(result);
                     if (result.status) {
+
+
                         swal({
-                            title: "Good job!",
+                            title: 'Good job!',
                             padding: 20,
-                            text: " While you wait, Administration Previlages have been removed Successifully!!",
-                            type: "success"
+                            text: ' While you wait, Administration Previlages have been removed Successifully!!',
+                            type: 'success',
+
                         });
 
                         setTimeout(function() {
@@ -903,24 +986,25 @@ function deactivateAccount(id) {
                 error: function(jqXHR) {
                     console.log(jqXHR);
                 }
-            });
+            })
         }
     });
-}
+};
 
-//function add row
+
 
 function addRow() {
+    $("#addRowBtn").button("loading");
 
-    var tableLength = $("#orderTable tbody tr").length;
+    var tableLength = $("#productTable tbody tr").length;
 
     var tableRow;
     var arrayNumber;
     var count;
 
     if (tableLength > 0) {
-        tableRow = $("#orderTable tbody tr:last").attr('id');
-        arrayNumber = $("#orderTable tbody tr:last").attr('class');
+        tableRow = $("#productTable tbody tr:last").attr('id');
+        arrayNumber = $("#productTable tbody tr:last").attr('class');
         count = tableRow.substring(3);
         count = Number(count) + 1;
         arrayNumber = Number(arrayNumber) + 1;
@@ -931,162 +1015,64 @@ function addRow() {
     }
 
     $.ajax({
-        type: "GET",
+
+        type: 'GET',
         // type: "POST",
         dataType: "json",
         url: "php_action/fetchProductData.php?t=true",
 
         success: function(response) {
+
+
                 $("#addRowBtn").button("reset");
 
-                var tr =
-                    '<tr id="row' + count + '" class="' + arrayNumber + '">' +
-                    '<td> ' +
-                    '<div class="form-group">  <input type="checkbox" name="record"></div>' +
-                    '</td>' +
-                    '  <td>' +
-                    '<div class="form-group">' +
-                    '<img src=""  alt="image" width="50" height="50" id="img' + count + '" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">' +
-                    '</div>' +
-                    '</td>' +
-
+                var tr = '<tr id="row' + count + '" class="' + arrayNumber + '">' +
                     '<td>' +
                     '<div class="form-group">' +
-                    '<select class="custom-select" name="product_name[]"   id = "product_name' + count + '"    onchange="getProductData(' + count + ')"> ' +
-                    "<option selected > ~~Select Product~~ </option>";
 
+                    '<select class="form-control" name="productName[]" id="productName' + count + '" onchange="getProductData(' + count + ')" >' +
+                    '<option value="">~~SELECT~~</option>';
                 // console.log(response);
                 $.each(response, function(index, value) {
-                    tr += '<option value="' + value[0] + '">' + value[1] + "</option>";
+                    tr += '<option value="' + value[0] + '">' + value[1] + '</option>';
                 });
 
-                tr += "</select>" +
-                    "</div>" +
-                    "</td>" +
-                    " <td>" +
-                    ' <div class="form-group">' +
-                    '<input type="text" name="quantity[]" id="quantity' + count + '"    class="form-control" placeholder="">' +
-                    " </div>" +
-                    "</td>" +
-                    "<td>" +
+                tr += '</select>' +
+                    '</div>' +
+                    '</td>' +
+                    '<td style="padding-left:20px;"">' +
+                    '<input type="text" name="rate[]" id="rate' + count + '" autocomplete="off" disabled="true" class="form-control" />' +
+                    '<input type="hidden" name="rateValue[]" id="rateValue' + count + '" autocomplete="off" class="form-control" />' +
+                    '</td style="padding-left:20px;">' +
+                    '<td style="padding-left:20px;">' +
                     '<div class="form-group">' +
-                    '<input type ="text" class="form-control" name="price[]" disabled id ="price' + count + '">  </div> </td > <td>' +
-                    '<div class="form-group"> <input type="number" name="quantityTaken[]" onchange="getTotal(' + count + ', this.value)" min="1" id="quantityTaken' + count + '"  class ="form-control" ></div> </td>' +
-                    ' <td> <div class ="form-group"><input type="text" disabled  name="totalProductPrice[]"  id="totalProductPrice' + count + '"    class="form-control"> </div> </td>' +
-                    '<td><div class="form-group"> <button class="btn btn-danger " onclick="deleteRow()"   type="button" > X </button> </div>' +
-                    " </td>" +
-                    "</tr>";
+                    '<p id="available_quantity' + count + '"></p>' +
+                    '</div>' +
+                    '</td>' +
+                    '<td style="padding-left:20px;">' +
+                    '<div class="form-group">' +
+                    '<input type="number" name="quantity[]" id="quantity' + count + '" onkeyup="getTotal(' + count + ')" autocomplete="off" class="form-control" min="1" />' +
+                    '</div>' +
+                    '</td>' +
+                    '<td style="padding-left:20px;">' +
+                    '<input type="text" name="total[]" id="total' + count + '" autocomplete="off" class="form-control" disabled="true" />' +
+                    '<input type="hidden" name="totalValue[]" id="totalValue' + count + '" autocomplete="off" class="form-control" />' +
+                    '</td>' +
+                    '<td>' +
+                    '<button class="btn btn-default removeProductRowBtn" type="button" onclick="removeProductRow(' + count + ')"><i class="fas fa-trash"></i></button>' +
+                    '</td>' +
+                    '</tr>';
                 if (tableLength > 0) {
-                    $("#orderTable tbody tr:last").after(tr);
+                    $("#productTable tbody tr:last").after(tr);
                 } else {
-                    $("#orderTable tbody").append(tr);
+                    $("#productTable tbody").append(tr);
                 }
+
             } // /success
     }); // get the product data
-}
 
-function getProductData(row = null) {
+} // /add row
 
-    if (row) {
-        var productId = $("#product_name" + row).val();
-
-        if (productId == "") {
-            $("#price" + row).val("");
-
-            $("#quantity" + row).val("");
-            $("#img" + row).attr(['src']).val("");
-            $("#totalProductPrice" + row).val("");
-
-        } else {
-            $.ajax({
-                url: 'php_action/fetch_selected_category.php',
-                type: 'post',
-                data: { productId: productId },
-                dataType: 'json',
-                success: function(response) {
-                        // setting the rate value into the rate input field
-
-                        console.log(response);
-
-                        $("#price" + row).val(response.price);
-                        //$("#rateValue" + row).val(response.rate);
-                        var img = response.product_image;
-                        img = img.substring(3);
-                        $("#img" + row).attr('src', img);
-                        $("#quantity" + row).val(response.quantity);
-                        $("#quantityTaken" + row).val('1');
-
-                        //getting the product row total 
-
-
-                        var b = Number(response.price);
-                        var productRowTotal = 1 * b;
-
-                        $("#totalProductPrice" + row).val(productRowTotal);
-
-
-
-                        // var total = Number(response.rate) * 1;
-                        // total = total.toFixed(2);
-                        // $("#total" + row).val(total);
-                        // $("#totalValue" + row).val(total);
-
-                        //check
-                        // if product name is selected
-                        var tableProductLength = $("#orderTable tbody tr").length;
-                        for (x = 0; x < tableProductLength; x++) {
-                            var tr = $("#orderTable tbody tr")[x];
-                            var count = $(tr).attr('id');
-                            count = count.substring(3);
-
-                            var productValue = $("#productName" + row).val()
-
-                            // if ($("#product_name" + count).val() != productValue) {
-                            //     // $("#productName"+count+" #changeProduct"+count).addClass('div-hide');	
-                            //     $("#product_name" + count).find("#changeProduct" + productId).addClass('div-hide');
-                            //     // console.log("#changeProduct" + count);
-                            // }
-                        } // /for
-
-                        // subAmount();
-                    } // /success
-            }); // /ajax function to fetch the product data	
-        }
-
-    } else {
-        alert('no row! please refresh the page');
-    }
-} // /select on product data
-
-
-
-function getTotal(row = null, value) {
-    if (row) {
-        var total = Number($("#price" + row).val()) * value;
-
-        $("#totalProductPrice" + row).val(total);
-
-
-        //subAmount();
-
-    } else {
-        alert('no row !! please refresh the page');
-    }
-}
-
-
-
-
-
-
-
-function deleteRow() {
-    $("#orderTable tbody").find('input[name="record"]').each(function() {
-        if ($(this).is(":checked")) {
-            $(this).parents("tr").remove();
-        }
-    });
-};
 
 function discountFunc() {
     var discount = $("#discount").val();
@@ -1115,7 +1101,9 @@ function discountFunc() {
         $("#due").val($("#grandTotal").val());
         $("#dueValue").val($("#grandTotal").val());
     }
+
 } // /discount function
+
 
 function paidAmount() {
     var grandTotal = $("#grandTotal").val();
@@ -1128,114 +1116,204 @@ function paidAmount() {
     } // /if
 } // /paid amoutn function
 
+
 function resetOrderForm() {
     // reset the input field
     $("#createOrderForm")[0].reset();
     // remove remove text danger
     $(".text-danger").remove();
-    // remove form group error
-    $(".form-group").removeClass("has-success").removeClass("has-error");
+    // remove form group error 
+    $(".form-group").removeClass('has-success').removeClass('has-error');
 } // /reset order form
+
 
 // remove order from server
 function removeOrder(orderId = null) {
     if (orderId) {
-        $("#removeOrderBtn")
-            .unbind("click")
-            .bind("click", function() {
-                $("#removeOrderBtn").button("loading");
+        $("#removeOrderBtn").unbind('click').bind('click', function() {
+            $("#removeOrderBtn").button('loading');
 
-                $.ajax({
-                    url: "php_action/removeOrder.php",
-                    type: "post",
-                    data: { orderId: orderId },
-                    dataType: "json",
-                    success: function(response) {
-                            $("#removeOrderBtn").button("reset");
+            $.ajax({
+                url: 'php_action/removeOrder.php',
+                type: 'post',
+                data: { orderId: orderId },
+                dataType: 'json',
+                success: function(response) {
+                        $("#removeOrderBtn").button('reset');
 
-                            if (response.success == true) {
-                                manageOrderTable.ajax.reload(null, false);
-                                // hide modal
-                                $("#removeOrderModal").modal("hide");
-                                // success messages
-                                $("#success-messages").html(
-                                    '<div class="alert alert-success">' +
-                                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                    '<strong><i class="fa fa-ok-sign"></i></strong> ' +
-                                    response.messages +
-                                    "</div>"
-                                );
+                        if (response.success == true) {
 
-                                // remove the mesages
-                                $(".alert-success")
-                                    .delay(500)
-                                    .show(10, function() {
-                                        $(this)
-                                            .delay(3000)
-                                            .hide(10, function() {
-                                                $(this).remove();
-                                            });
-                                    }); // /.alert
-                            } else {
-                                // error messages
-                                $(".removeOrderMessages").html(
-                                    '<div class="alert alert-warning">' +
-                                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                    '<strong><i class="fa fa-ok-sign"></i></strong> ' +
-                                    response.messages +
-                                    "</div>"
-                                );
+                            manageOrderTable.ajax.reload(null, false);
+                            // hide modal
+                            $("#removeOrderModal").modal('hide');
+                            // success messages
+                            $("#success-messages").html('<div class="alert alert-success">' +
+                                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                                '<strong><i class="fa fa-ok-sign"></i></strong> ' + response.messages +
+                                '</div>');
 
-                                // remove the mesages
-                                $(".alert-success")
-                                    .delay(500)
-                                    .show(10, function() {
-                                        $(this)
-                                            .delay(3000)
-                                            .hide(10, function() {
-                                                $(this).remove();
-                                            });
-                                    }); // /.alert
-                            } // /else
-                        } // /success
-                }); // /ajax function to remove the order
-            }); // /remove order button clicked
+                            // remove the mesages
+                            $(".alert-success").delay(500).show(10, function() {
+                                $(this).delay(3000).hide(10, function() {
+                                    $(this).remove();
+                                });
+                            }); // /.alert	          
+
+                        } else {
+                            // error messages
+                            $(".removeOrderMessages").html('<div class="alert alert-warning">' +
+                                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                                '<strong><i class="fa fa-ok-sign"></i></strong> ' + response.messages +
+                                '</div>');
+
+                            // remove the mesages
+                            $(".alert-success").delay(500).show(10, function() {
+                                $(this).delay(3000).hide(10, function() {
+                                    $(this).remove();
+                                });
+                            }); // /.alert	          
+                        } // /else
+
+                    } // /success
+            }); // /ajax function to remove the order
+
+        }); // /remove order button clicked
+
+
     } else {
-        alert("error! refresh the page again");
+        alert('error! refresh the page again');
     }
 }
 // /remove order from server
 
-// print order function
-function printOrder(orderId = null) {
-    if (orderId) {
-        $.ajax({
-            url: "php_action/printOrder.php",
-            type: "post",
-            data: { orderId: orderId },
-            dataType: "text",
-            success: function(response) {
-                    var mywindow = window.open(
-                        "",
-                        "Online Trade System",
-                        "height=400,width=600"
-                    );
-                    mywindow.document.write("<html><head><title>Order Invoice</title>");
-                    mywindow.document.write("</head><body>");
-                    mywindow.document.write(response);
-                    mywindow.document.write("</body></html>");
 
-                    mywindow.document.close(); // necessary for IE >= 10
-                    mywindow.focus(); // necessary for IE >= 10
-                    mywindow.resizeTo(screen.width, screen.height);
-                    setTimeout(function() {
-                        mywindow.print();
-                        mywindow.close();
-                    }, 1250);
 
-                    //mywindow.print();
-                    //mywindow.close();
-                } // /success function
-        }); // /ajax function to fetch the printable order
-    } // /if orderId
-} // /print order function
+function getProductData(row = null) {
+
+    if (row) {
+        var productId = $("#productName" + row).val();
+
+        if (productId == "") {
+            $("#rate" + row).val("");
+
+            $("#quantity" + row).val("");
+            $("#total" + row).val("");
+
+        } else {
+            $.ajax({
+                url: 'php_action/fetch_selected_category.php',
+                type: 'post',
+                data: { productId: productId },
+                dataType: 'json',
+                success: function(response) {
+                        // setting the rate value into the rate input field
+
+                        //console.log(response);
+
+                        $("#rate" + row).val(response.rate);
+                        $("#rateValue" + row).val(response.rate);
+
+                        $("#quantity" + row).val(1);
+                        $("#available_quantity" + row).text(response.quantity);
+
+                        var total = Number(response.rate) * 1;
+                        total = total.toFixed(2);
+                        $("#total" + row).val(total);
+                        $("#totalValue" + row).val(total);
+
+                        //check
+                        // if product name is selected
+                        var tableProductLength = $("#productTable tbody tr").length;
+                        for (x = 0; x < tableProductLength; x++) {
+                            var tr = $("#productTable tbody tr")[x];
+                            var count = $(tr).attr('id');
+                            count = count.substring(3);
+
+                            var productValue = $("#productName" + row).val()
+
+                            if ($("#productName" + count).val() != productValue) {
+                                // $("#productName"+count+" #changeProduct"+count).addClass('div-hide');	
+                                $("#productName" + count).find("#changeProduct" + productId).addClass('div-hide');
+                                // console.log("#changeProduct" + count);
+                            }
+                        } // /for
+
+                        subAmount();
+                    } // /success
+            }); // /ajax function to fetch the product data	
+        }
+
+    } else {
+        alert('no row! please refresh the page');
+    }
+} // /select on product data
+
+
+
+// table total
+function getTotal(row = null) {
+    if (row) {
+        var total = Number($("#rate" + row).val()) * Number($("#quantity" + row).val());
+        total = total.toFixed(2);
+        $("#total" + row).val(total);
+        $("#totalValue" + row).val(total);
+
+        subAmount();
+
+    } else {
+        alert('no row !! please refresh the page');
+    }
+}
+
+function subAmount() {
+    var tableProductLength = $("#productTable tbody tr").length;
+    var totalSubAmount = 0;
+    for (x = 0; x < tableProductLength; x++) {
+        var tr = $("#productTable tbody tr")[x];
+        var count = $(tr).attr('id');
+        count = count.substring(3);
+
+        totalSubAmount = Number(totalSubAmount) + Number($("#total" + count).val());
+    } // /for
+
+    totalSubAmount = totalSubAmount.toFixed(2);
+
+    // sub total
+    $("#subTotal").val(totalSubAmount);
+    $("#subTotalValue").val(totalSubAmount);
+
+    // vat
+    var vat = (Number($("#subTotal").val()) / 100) * 18;
+    vat = vat.toFixed(2);
+    $("#vat").val(vat);
+    $("#vatValue").val(vat);
+
+    // total amount
+    var totalAmount = (Number($("#subTotal").val()) + Number($("#vat").val()));
+    totalAmount = totalAmount.toFixed(2);
+    $("#totalAmount").val(totalAmount);
+    $("#totalAmountValue").val(totalAmount);
+
+    var discount = $("#discount").val();
+    if (discount) {
+        var grandTotal = Number($("#totalAmount").val()) - Number(discount);
+        grandTotal = grandTotal.toFixed(2);
+        $("#grandTotal").val(grandTotal);
+        $("#grandTotalValue").val(grandTotal);
+    } else {
+        $("#grandTotal").val(totalAmount);
+        $("#grandTotalValue").val(totalAmount);
+    } // /else discount	
+
+    var paidAmount = $("#paid").val();
+    if (paidAmount) {
+        paidAmount = Number($("#grandTotal").val()) - Number(paidAmount);
+        paidAmount = paidAmount.toFixed(2);
+        $("#due").val(paidAmount);
+        $("#dueValue").val(paidAmount);
+    } else {
+        $("#due").val($("#grandTotal").val());
+        $("#dueValue").val($("#grandTotal").val());
+    } // else
+
+} // /sub total amount

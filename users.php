@@ -61,11 +61,15 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Full Names</th>
-                                        <th>Email Address</th>
-                                        <th>Phone Number</th>
-                                        <th>Account Status</th>
-                                        <th>Registered By </th>
-                                        <th>Registered On </th>
+                                        <th>Email </th>
+                                        <th>Mobile</th>
+                                        <th>Account Status</th> 
+                                        <th>User Role</th>                                      
+                                        <th>Admin </th>
+                                        <th>Revoke </th>
+                                        <th>Deactivate Account</th>
+                                        <th>Edit </th>
+                                        <th>Trash </th>
                                     </tr>
                                 </thead>
 
@@ -96,7 +100,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header text-white" style="background-color: orange;">
+            <div class="modal-header text-white" style="background-color: #015C9B;">
                 <h5 class="modal-title mt-0" id="myLargeModalLabel"> <i class="mdi mdi-plus-circle"></i> Add User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
@@ -104,8 +108,6 @@
 
                 <div class="card m-b-20">
                     <div class="card-body">
-
-
 
                         <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show"
                             role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -124,6 +126,30 @@
                                     <div class="form-group row">
 
                                         <div class="col-sm-4">
+                                            <label for="sname">FirstName :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="sname" class="form-control"
+                                                placeholder="Enter FirstName" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+
+                                        <div class="col-sm-4">
+                                            <label for="lname">LastName :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="lname" class="form-control"
+                                                placeholder="Enter LastName" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+
+                                        <div class="col-sm-4">
                                             <label for="username">Username :</label>
                                         </div>
                                         <div class="col-sm-8">
@@ -134,22 +160,11 @@
 
                                     <div class="form-group row">
                                         <div class="col-sm-4">
-                                            <label for="productPrice">Email :</label>
+                                            <label for="email">Email :</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="email" name="email" class="form-control"
-                                            parsley-type="email" required placeholder="Enter Email Address">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                            <label for="password">Password :</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <input type="password" name="password" class="form-control" required
-                                                placeholder="Enter Password">
+                                            <input type="email" name="email" class="form-control" parsley-type="email"
+                                                required placeholder="Enter Email Address">
                                         </div>
                                     </div>
 
@@ -162,44 +177,57 @@
                                 <div class="col-6">
 
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                            <label for="location">Location :</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="username" class="form-control"
-                                                placeholder="Enter Location" required>
-                                        </div>
-                                    </div>
+
 
                                     <div class="form-group row">
                                         <div class="col-sm-4">
                                             <label for="mobile">Phone :</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="number" name="mobile" class="form-control" data-parsley-type="number"
-                                                placeholder="Enter Phone Contact" required data-parsley-minlength="10" 
-                                                data-parsley-maxlength="10">
+                                            <input type="number" name="mobile" class="form-control"
+                                                data-parsley-type="number" placeholder="Enter Phone Contact" required
+                                                data-parsley-minlength="10" data-parsley-maxlength="10">
                                         </div>
                                     </div>
+
+
+                                    
 
 
                                     <div class="form-group row">
-                                        <div class="col-sm-4">
-                                            <label for="password">Password :</label>
+                                        <div class="col-sm-3">
+                                            <label for="gender">Gender :</label>
                                         </div>
-                                        <div class="col-sm-8">
-                                            <input type="password" name="password" class="form-control"
-                                                placeholder="Enter Password">
+                                        <div class="col-sm-9">
+                                            <select name="gender" id="brandStatus" class="custom-select">
+                                                <option value="#" selected="selected" disabled="disabled"> ~~ Select
+                                                    Gender ~~
+                                                </option>
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
+                                            </select>
                                         </div>
                                     </div>
 
 
 
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label for="role">Role :</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select name="role" id="role" class="custom-select">
+                                                <option value="#" selected="selected" disabled="disabled"> ~~ Select
+                                                    Role ~~
+                                                </option>
+                                                <option value="1">Administrator</option>
+                                                <option value="2">User</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
-
-
-
 
                             </div>
 

@@ -323,3 +323,80 @@ function fetch_products()
     echo $output;
 }
 
+
+
+
+function fetch_orders()
+{
+
+    $sql = "SELECT order_id, order_date, client_name, client_contact, payment_status FROM orders WHERE order_status = 1";    
+
+    $result = query($sql);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $output = "";
+
+        $count = 0;
+
+        while ($trailRow = mysqli_fetch_array($result)) {
+
+            $count++;
+            $order_id =  $trailRow['order_id'];
+            $order_date = $trailRow['order_date'];
+            $client_name = $trailRow['client_name'];
+            $client_contact = $trailRow['client_contact'];
+
+            //payment status
+            $payment_status = $trailRow['payment_status'];
+
+            if($payment_status == 1){
+                $payment_status = "<span class='badge badge-success'>Full Payment</span>";
+            }else if($payment_status == 2){
+                $payment_status = "<span class='badge badge-primary'>Advance Payment</span>";
+            }else{
+                $payment_status = "<span class='badge badge-danger'>No Payment</span>"; 
+            }
+
+
+            //fetching total order items           
+
+            $countOrderItemSql = "SELECT count(*) FROM order_item WHERE order_id = $order_id";
+            $itemCountResult = query($countOrderItemSql);
+            $itemCountRow = $itemCountResult->fetch_row();
+       
+
+
+             //payment type
+            //  $payment_type = $trailRow['payment_status'];
+
+            //  if($payment_status == 1){
+            //      $payment_status = "Full Payment";
+            //  }else if($payment_status == 2){
+            //      $payment_status = "Advance Payment";
+            //  }else{
+            //      $payment_status = "No Payment"; 
+            //  }
+ 
+
+            $output .= "<tr>
+           <td>{$count}</td>
+           <td>{$order_date}</td>
+           <td>{$client_name}</td>
+           <td>{$client_contact}</td>
+           <td>{$itemCountRow[0]}</td>           
+           <td>$payment_status</td>
+           <td><a onclick='edit_order($order_id)' class='text-success'><i class='fa fa-edit'></i></a></td>
+           <td><a onclick='deleteOrder($order_id)' class='text-danger'><i class='fa fa-trash '></i></a></td>
+           <td><a onclick='printOrder($order_id)' class='text-dark'><i class='fa fa-print'></i></a></td>
+           </tr>";
+
+        }
+
+    }else{
+
+        echo" No orders ";
+    }
+
+    return $output;
+}

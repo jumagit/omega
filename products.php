@@ -43,10 +43,15 @@
                     <div class="card m-b-20">
                         <div class="card-body">
 
-                            <h4 class="mt-0 header-title">View All Products</h4>
-                            <p class="text-muted m-b-30">Hre you can view all products
-                            </p>
+                            <h4 class="mt-0 header-title">View All Stock</h4>
 
+                            <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show"
+                                role="alert"> <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong>Here you can view all Stock
+                            </div>
+                          
                             <div class="d-block float-right" style="">
                                 <button type="button" class="btn btn-warning waves-effect waves-light"
                                     data-toggle="modal" data-target=".bs-example-modal-lg"> <i

@@ -153,7 +153,7 @@
 
                           
                             <li class="has-submenu">
-                                <a href="clients.php"><i class="mdi mdi-account-multiple"></i>Clients</a>
+                                <a href="clients.php"><i class="mdi mdi-account-multiple"></i>Suppliers</a>
                                
                             </li>
 

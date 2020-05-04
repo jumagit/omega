@@ -42,9 +42,14 @@
                     <div class="card m-b-20">
                         <div class="card-body">
 
-                            <h4 class="mt-0 header-title">Clients</h4>
-                            <p class="text-muted m-b-30">Here you can Cleints
-                            </p>
+                            <h4 class="mt-0 header-title">Suppliers</h4>
+                            <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show"
+                                role="alert"> <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong>Here you view All registered Suppliers
+                            </div>
+                           
 
                             <div class="d-block float-right" style="">
                                 <button type="button" class="btn btn-primary waves-effect waves-light"

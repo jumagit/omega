@@ -1250,6 +1250,8 @@ function getProductData(row = null) {
 
 
 
+
+
 // table total
 function getTotal(row = null) {
     if (row) {

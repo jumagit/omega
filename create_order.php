@@ -43,13 +43,19 @@
                         <div class="card-body">
 
                             <h4 class="mt-0 header-title">Create Order</h4>
-                            <p class="text-muted m-b-30">Here you can create Customer Order
-                            </p>
+                            <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show"
+                                role="alert"> <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong>Here you can create
+                                Customer Order
+                            </div>
+
 
                             <hr>
 
 
-                            <form class="form-horizontal pb-5" method="POST" action="php_action/createOrder.php"
+                            <form class="form-horizontal pb-5" method="POST" action="#"
                                 id="createOrderForm">
 
 
@@ -60,7 +66,7 @@
                                         <label for="orderDate" class="col-sm-4 control-label">Order Date</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="orderDate" name="orderDate"
-                                                autocomplete="off" />
+                                                autocomplete="off" required />
                                         </div>
                                     </div>
                                     <!--/form-group row-->
@@ -68,7 +74,7 @@
                                         <label for="customerName" class="col-sm-4 control-label">customer Name</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="customerName"
-                                                name="customerName" placeholder="customer Name" autocomplete="off" />
+                                                name="customerName" required placeholder="customer Name" autocomplete="off" />
                                         </div>
                                     </div>
                                     <!--/form-group row-->
@@ -77,7 +83,7 @@
                                             Contact</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="customerContact"
-                                                name="customerContact" placeholder="Contact Number"
+                                                name="customerContact" placeholder="Contact Number" required
                                                 autocomplete="off" />
                                         </div>
                                     </div>
@@ -95,11 +101,14 @@
 
                                     <h5 class="text-center pt-2 ">Order Section</h5>
                                     <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show"
-                            role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong> In this section, Select the Product from the dropdown and add the product to the cart form
-                        </div>
-                                 
+                                        role="alert"> <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong> In this
+                                        section, Select the Product from the dropdown and add the product to the cart
+                                        form.
+                                    </div>
+
                                     <table class="table table-striped table-inverse table-responsive" id="orderTable">
                                         <thead class="thead-inverse">
                                             <tr>
@@ -136,7 +145,10 @@
                                                 <td>
 
                                                     <div class="form-group">
-                                                        <img src=""  alt="image" width="50" height="50" id="img<?php echo $x; ?>"  class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                                                        <img src="" alt="image" width="50" height="50"
+                                                            id="img<?php echo $x; ?>"
+                                                            class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                                                            alt="">
                                                     </div>
                                                 </td>
 
@@ -166,7 +178,7 @@
                                                     <div class="form-group">
 
                                                         <input type="text" name="quantity[]"
-                                                            id="quantity<?php echo $x; ?>" class="form-control"
+                                                            id="quantity<?php echo $x; ?>" class="form-control" 
                                                             placeholder="">
 
                                                     </div>
@@ -186,7 +198,7 @@
                                                     <div class="form-group">
 
                                                         <input type="number" name="quantityTaken[]"
-                                                            onchange="getTotal(<?php echo $x; ?>, this.value)"
+                                                            onchange="getTotal(<?php echo $x; ?>, this.value)" required
                                                             id="quantityTaken<?php echo $x; ?>" class="form-control"
                                                             min="1">
 
@@ -200,8 +212,8 @@
                                                     <div class="form-group">
 
                                                         <input type="text" name="totalProductPrice[]"
-                                                            id="totalProductPrice<?php echo $x; ?>"
-                                                            class="form-control" disabled>
+                                                            id="totalProductPrice<?php echo $x; ?>" class="form-control"
+                                                            disabled>
 
                                                     </div>
                                                 </td>
@@ -228,6 +240,149 @@
 
                                         </tbody>
                                     </table>
+
+                                    <hr>
+
+
+                                    <div class="container">
+
+                                        <div class="row">
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="subTotal" class="col-sm-3 control-label">Sub
+                                                        Amount</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" required id="subTotal"
+                                                            name="subTotal" disabled="true" />
+                                                        <input type="hidden" class="form-control" required id="subTotalValue"
+                                                            name="subTotalValue" />
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="totalAmount" class="col-sm-3 control-label">Total
+                                                        Amount</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="totalAmount" required
+                                                            name="totalAmount" disabled="true" />
+                                                        <input type="hidden" class="form-control" id="totalAmountValue" required
+                                                            name="totalAmountValue" />
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="discount"
+                                                        class="col-sm-3 control-label">Discount</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="discount" required
+                                                            name="discount" onkeyup="discountFunc()"
+                                                            autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="grandTotal" class="col-sm-3 control-label">Grand
+                                                        Total</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="grandTotal" required
+                                                            name="grandTotal" disabled="true" />
+                                                        <input type="hidden" class="form-control" id="grandTotalValue"
+                                                            name="grandTotalValue" />
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="vat" class="col-sm-3 control-label gst">GST 18%</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="vat" name="gstn"
+                                                            readonly="true" />
+                                                        <input type="hidden" class="form-control" id="vatValue"
+                                                            name="vatValue" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/col-md-6-->
+
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="paid" class="col-sm-3 control-label">Paid Amount</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="paid" name="paid"
+                                                            autocomplete="off" onkeyup="paidAmount()" required/>
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="due" class="col-sm-3 control-label">Due Amount</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="due" name="due"
+                                                            disabled="true" />
+                                                        <input type="hidden" class="form-control" id="dueValue"
+                                                            name="dueValue" />
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="customerContact" class="col-sm-3 control-label">Payment
+                                                        Type</label>
+                                                    <div class="col-sm-9">
+                                                    <!-- <div class="btn-group">
+
+                                                    <button type="button" class="btn btn-primary">MTN Momo</button>
+                                                    <button type="button" class="btn btn-danger">Airtel Money</button>
+                                                    <button type="button" class="btn btn-dark"> <i class="fa fa-dollar-sign text-light"></i>  Cash</button>
+                                                    
+                                                    </div> -->
+                                                        <select class="form-control" name="paymentType"
+                                                            id="paymentType" required>
+                                                            <option value="">~~SELECT~~</option>
+                                                            <option value="1">Cheque</option>
+                                                            <option value="2">Cash</option>
+                                                            <option value="3">Credit Card</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="customerContact" class="col-sm-3 control-label">Payment
+                                                        Status</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" required name="paymentStatus"
+                                                            id="paymentStatus">
+                                                            <option value="">~~SELECT~~</option>
+                                                            <option value="1">Full Payment</option>
+                                                            <option value="2">Advance Payment</option>
+                                                            <option value="3">No Payment</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                                <div class="form-group row">
+                                                    <label for="customerContact" class="col-sm-3 control-label">Payment
+                                                        Place</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" required name="paymentPlace"
+                                                            id="paymentPlace">
+                                                            <option value="">~~SELECT~~</option>
+                                                            <option value="1">In Gujarat</option>
+                                                            <option value="2">Out Of Gujarat</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--/form-group-->
+                                            </div>
+                                            <!--/col-md-6-->
+
+
+
+
+                                        </div>
+
+                                    </div>
+
 
 
                                 </div>

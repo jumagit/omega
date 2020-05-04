@@ -1,73 +1,80 @@
-<?php 	
-//ALTER TABLE `orders` ADD `payment_place` INT NOT NULL AFTER `payment_status`;
-//TER TABLE `orders` ADD `gstn` VARCHAR(255) NOT NULL AFTER `payment_place`;
-require_once 'core.php';
+<?php
 
-$valid['success'] = array('success' => false, 'messages' => array(), 'order_id' => '');
-// print_r($valid);
-if($_POST) {	
+include "check_if_logged_in.php";
 
-	$orderDate 						= date('Y-m-d', strtotime($_POST['orderDate']));	
-  $clientName 					= $_POST['clientName'];
-  $clientContact 				= $_POST['clientContact'];
-  $subTotalValue 				= $_POST['subTotalValue'];
-  $vatValue 						=	$_POST['vatValue'];
-  $totalAmountValue     = $_POST['totalAmountValue'];
-  $discount 						= $_POST['discount'];
-  $grandTotalValue 			= $_POST['grandTotalValue'];
-  $paid 								= $_POST['paid'];
-  $dueValue 						= $_POST['dueValue'];
-  $paymentType 					= $_POST['paymentType'];
-  $paymentStatus 				= $_POST['paymentStatus'];
-  $paymentPlace 				= $_POST['paymentPlace'];
-  $gstn 				= $_POST['gstn'];
-  $userid 				= $_SESSION['userId'];
+require "../includes/db.php";
 
-				
-	$sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id) VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$userid)";
-	
-	$order_id;
-	$orderStatus = false;
-	if($connect->query($sql) === true) {
-		$order_id = $connect->insert_id;
-		$valid['order_id'] = $order_id;	
+// inserting brands
 
-		$orderStatus = true;
-	}
+if ($_REQUEST['t'] == 'true') {
 
-		
-	// echo $_POST['productName'];
-	$orderItemStatus = false;
+    if (isset($_SESSION['fullName'])) {
+        $created_by = $_SESSION['fullName'];
+    }
 
-	for($x = 0; $x < count($_POST['productName']); $x++) {			
-		$updateProductQuantitySql = "SELECT product.quantity FROM product WHERE product.product_id = ".$_POST['productName'][$x]."";
-		$updateProductQuantityData = $connect->query($updateProductQuantitySql);
-		
-		
-		while ($updateProductQuantityResult = $updateProductQuantityData->fetch_row()) {
-			$updateQuantity[$x] = $updateProductQuantityResult[0] - $_POST['quantity'][$x];							
-				// update product table
-				$updateProductTable = "UPDATE product SET quantity = '".$updateQuantity[$x]."' WHERE product_id = ".$_POST['productName'][$x]."";
-				$connect->query($updateProductTable);
+    $orderDate = date('Y-m-d', strtotime(clean($_POST['orderDate'])));
+    $clientName = clean($_POST['customerName']);
+    $clientContact = clean($_POST['customerContact']);
+    $subTotalValue = clean($_POST['subTotalValue']);
+    $vatValue = clean($_POST['vatValue']);
+    $totalAmountValue = clean($_POST['totalAmountValue']);
+    $discount = clean($_POST['discount']);
+    $grandTotalValue = clean($_POST['grandTotalValue']);
+    $paid = clean($_POST['paid']);
+    $dueValue = clean($_POST['dueValue']);
+    $paymentType = clean($_POST['paymentType']);
+    $paymentStatus = clean($_POST['paymentStatus']);
+    $paymentPlace = clean($_POST['paymentPlace']);
+    $gstn = clean($_POST['gstn']);
+    $client_id = $_SESSION['client_id'];
 
-				// add into order_item
-				$orderItemSql = "INSERT INTO order_item (order_id, product_id, quantity, rate, total, order_item_status) 
-				VALUES ('$order_id', '".$_POST['productName'][$x]."', '".$_POST['quantity'][$x]."', '".$_POST['rateValue'][$x]."', '".$_POST['totalValue'][$x]."', 1)";
+    $sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id)
+	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$client_id)";
 
-				$connect->query($orderItemSql);		
+    $order_id;
+    $orderStatus = false;
+    if ($connection->query($sql) === true) {
+        $order_id = $connection->insert_id;
+        $valid['order_id'] = $order_id;
+        $orderStatus = true;
+    }
 
-				if($x == count($_POST['productName'])) {
-					$orderItemStatus = true;
-				}		
-		} // while	
-	} // /for quantity
+    // echo clean(clean($_POST['productName'];
+    $orderItemStatus = false;
 
-	$valid['success'] = true;
-	$valid['messages'] = "Successfully Added";		
-	
-	$connect->close();
+    for ($x = 0; $x < count($_POST['product_name']); $x++) {
+        $updateProductQuantitySql = "SELECT products.quantity FROM products
+		 WHERE products.product_id = " . $_POST['product_name'][$x] . "";
+        $updateProductQuantityData = $connection->query($updateProductQuantitySql);
 
-	echo json_encode($valid);
- 
-} // /if $_POST
-// echo json_encode($valid);
+        while ($updateProductQuantityResult = $updateProductQuantityData->fetch_row()) {
+            $updateQuantity[$x] = $updateProductQuantityResult[0] - $_POST['quantityTaken'][$x];
+            // update product table
+            $updateProductTable = "UPDATE products SET quantity = '" . $updateQuantity[$x] . "' WHERE product_id = " . $_POST['product_name'][$x] . "";
+            $connection->query($updateProductTable);
+
+            // add into order_item
+            $orderItemSql = "INSERT INTO order_item (order_id, product_id, quantity, order_item_status)
+				VALUES ('$order_id', '" . $_POST['product_name'][$x] . "', '" . $_POST['quantityTaken'][$x] . "', 1)";
+
+            $query = query($orderItemSql);
+
+            if ($x == count($_POST['product_name'])) {
+                $orderItemStatus = true;
+            }
+        } // while
+    } // /for quantity
+
+    if ($query) {
+        $feed_back = array('status' => true, 'msg' => 'success');
+    } else {
+        $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
+    }
+
+    $dataX = json_encode($feed_back);
+    header('Content-Type: application/json');
+    echo $dataX;
+
+    $connection->close();
+
+}

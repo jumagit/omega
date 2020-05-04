@@ -46,9 +46,12 @@
      <script src="plugins/datatables/responsive.bootstrap4.min.js"></script>
      <script src="plugins/parsleyjs/parsley.min.js"></script>
     <!--money js -->
+
+    
     <script src="plugins/money/Number.js"></script>
      <!-- Datatable init js -->
      <script src="assets/pages/datatables.init.js"></script>
+     <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
      <!-- Sweet-Alert  -->
      <script src="plugins/sweet-alert2/sweetalert2.min.js"></script>
      <script src="assets/pages/sweet-alert.init.js"></script>

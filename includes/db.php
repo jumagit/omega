@@ -235,7 +235,6 @@ function generatePassword($length = 9, $add_dashes = false, $available_sets = 'l
 
 
 function money($amount){
-
     $amount =  str_replace(',', '',$amount);
     $amount =  floatval($amount);
     $amount = intval($amount, 10);

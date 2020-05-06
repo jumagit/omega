@@ -53,9 +53,13 @@ if ($_REQUEST['t'] == 'true') {
             $updateProductTable = "UPDATE products SET quantity = '" . $updateQuantity[$x] . "' WHERE product_id = " . $_POST['product_name'][$x] . "";
             $connection->query($updateProductTable);
 
+            $totalPerProduct =  (int)$_POST['quantityTaken'][$x] * (float)$_POST['price'][$x];
+
+            //echo $totalPerProduct;
+
             // add into order_item
-            $orderItemSql = "INSERT INTO order_item (order_id, product_id, quantity, order_item_status)
-				VALUES ('$order_id', '" . $_POST['product_name'][$x] . "', '" . $_POST['quantityTaken'][$x] . "', 1)";
+            $orderItemSql = "INSERT INTO order_item (order_id, product_id, quantityTaken ,total, order_item_status)
+				VALUES ('$order_id', '" . $_POST['product_name'][$x] . "', '" . $_POST['quantityTaken'][$x] . "', $totalPerProduct,1)";
 
             $query = query($orderItemSql);
 

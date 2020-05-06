@@ -161,7 +161,7 @@
                                                             onchange="getProductData(<?php echo $x; ?>)">
                                                             <option selected> ~~ Select Product ~~</option>
                                                             <?php
-                                                                $productSql = "SELECT * FROM products WHERE active > 0 AND status > 0 AND quantity != 0";
+                                                                $productSql = "SELECT * FROM products WHERE quantity > 0";
                                                                 $productData = $connection->query($productSql);
 
                                                                 while($row = mysqli_fetch_array($productData)) {									 		
@@ -188,7 +188,7 @@
                                                     <div class="form-group">
 
                                                         <input type="text" class="form-control" name="price[]"
-                                                            id="price<?php echo $x; ?>" disabled>
+                                                            id="price<?php echo $x; ?>" >
 
                                                     </div>
                                                 </td>
@@ -198,7 +198,7 @@
                                                     <div class="form-group">
 
                                                         <input type="number" name="quantityTaken[]"
-                                                            onchange="getTotal(<?php echo $x; ?>, this.value)" required
+                                                            onchange="getTotal(<?php echo $x; ?>, this.value)" 
                                                             id="quantityTaken<?php echo $x; ?>" class="form-control"
                                                             min="1">
 

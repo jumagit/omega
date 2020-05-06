@@ -205,7 +205,7 @@ function fetch_categories()
            <td>{$categories_status}</td>
            <td><a onclick='makeAvailable($categories_id)' class='text-info'><i class='fa fa-th'></i> Available  </a></td>
            <td><a onclick='notAvailable($categories_id)' class='text-success'><i class='fa fa-list'></i> Not Available  </a></td>
-           <td><a href='edit_brands.php?edit={$categories_id}' ><i class='fa fa-edit'></i></a></td>
+           <td><a href='edit_categories.php?edit={$categories_id}' ><i class='fa fa-edit'></i></a></td>
            <td><a onclick='deleteBrand($categories_id)' class='text-danger'><i class='fa fa-trash'></i></a></td>
            </tr>";
 

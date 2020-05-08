@@ -3,6 +3,15 @@
 <?php include"includes/navigation.php"; ?>
 <!-- End Navigation Bar-->
 
+
+<?php
+
+
+
+
+
+?>
+
 <!-- page wrapper start -->
 <div class="wrapper">
     <div class="page-title-box">
@@ -49,15 +58,15 @@
 
                             <div class="col-sm-6">
 
-                                <div class=" m-2  mini-stat position-relative " style="background-color:#F5B225">
+                                <div class=" m-2  mini-stat position-relative " style="background-color:#1B82EC">
                                     <div class="card-body">
                                         <div class="mini-stat-desc">
-                                            <h6 class="text-uppercase verti-label text-white-50">Stock </h6>
+                                            <h6 class="text-uppercase verti-label text-white-50">In Stock </h6>
                                             <div class="text-white">
-                                                <h6 class="text-uppercase mt-0 text-white-50">Stock</h6>
-                                                <h3 class="mb-3 mt-0">1,587</h3>
+                                                <h6 class="text-uppercase mt-0 text-white-50">In Stock</h6>
+                                                <h3 class="mb-3 mt-0"><?php count_anything('products'); ?></h3>
                                                 <div class="">
-                                                    <span class="ml-2"><a href="#" class="text-white">More
+                                                    <span class="ml-2"><a href="products.php" class="text-white">More
                                                             Details..</a></span>
                                                 </div>
                                             </div>
@@ -72,15 +81,16 @@
 
                             <div class="col-sm-6">
 
-                                <div class="m-2  mini-stat position-relative " style="background-color:#29BBE3">
+                                <div class="m-2  mini-stat position-relative " style="background-color:#1B82EC">
                                     <div class="card-body">
                                         <div class="mini-stat-desc">
                                             <h6 class="text-uppercase verti-label text-white-50">Orders</h6>
                                             <div class="text-white">
+
                                                 <h6 class="text-uppercase mt-0 text-white-50">Orders</h6>
-                                                <h3 class="mb-3 mt-0">1,587</h3>
+                                                <h3 class="mb-3 mt-0"><?php count_anything('orders'); ?></h3>
                                                 <div class="">
-                                                    <span class="ml-2"><a href="#" class="text-white">More
+                                                    <span class="ml-2"><a href="orders.php" class="text-white">More
                                                             Details..</a></span>
                                                 </div>
                                             </div>
@@ -96,20 +106,20 @@
 
                             <div class="col-sm-6">
 
-                                <div class="m-2 mini-stat position-relative " style="background-color:#2A3142">
+                                <div class="m-2 mini-stat position-relative " style="background-color:#1B82EC">
                                     <div class="card-body">
                                         <div class="mini-stat-desc">
-                                            <h6 class="text-uppercase verti-label text-white-50">Customers</h6>
+                                            <h6 class="text-uppercase verti-label text-white-50">Out Stock</h6>
                                             <div class="text-white">
-                                                <h6 class="text-uppercase mt-0 text-white-50">Customers</h6>
-                                                <h3 class="mb-3 mt-0">1,587</h3>
+                                                <h6 class="text-uppercase mt-0 text-white-50">Out Stock</h6>
+                                                <h3 class="mb-3 mt-0"><?php count_anything('order_item'); ?></h3>
                                                 <div class="">
                                                     <span class="ml-2"><a href="#" class="text-white">More
                                                             Details..</a></span>
                                                 </div>
                                             </div>
                                             <div class="mini-stat-icon">
-                                                <i class="mdi mdi-account-group display-2"></i>
+                                                <i class="mdi mdi-tune-vertical display-2"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -120,20 +130,20 @@
 
                             <div class="col-sm-6">
 
-                                <div class="m-2 mini-stat position-relative " style="background-color:#2A3142">
+                                <div class="m-2 mini-stat position-relative " style="background-color:#1B82EC;">
                                     <div class="card-body">
                                         <div class="mini-stat-desc">
-                                            <h6 class="text-uppercase verti-label text-white-50">Customers</h6>
+                                            <h6 class="text-uppercase verti-label text-white-50">Brands</h6>
                                             <div class="text-white">
-                                                <h6 class="text-uppercase mt-0 text-white-50">Customers</h6>
-                                                <h3 class="mb-3 mt-0">1,587</h3>
+                                                <h6 class="text-uppercase mt-0 text-white-50">Brands</h6>
+                                                <h3 class="mb-3 mt-0"><?php count_anything('brands'); ?></h3>
                                                 <div class="">
-                                                    <span class="ml-2"><a href="#" class="text-white">More
+                                                    <span class="ml-2"><a href="brands.php" class="text-white">More
                                                             Details..</a></span>
                                                 </div>
                                             </div>
                                             <div class="mini-stat-icon">
-                                                <i class="mdi mdi-account-group display-2"></i>
+                                                <i class="mdi mdi-biohazard display-2"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +154,7 @@
 
                             <div class="col-sm-6">
 
-                                <div class="m-2 mini-stat position-relative " style="background-color:#2A3142">
+                                <div class="m-2 mini-stat position-relative " style="background-color:#1B82EC">
                                     <div class="card-body">
                                         <div class="mini-stat-desc">
                                             <h6 class="text-uppercase verti-label text-white-50">Customers</h6>
@@ -170,17 +180,17 @@
                                 <div class="m-2  mini-stat position-relative " style="background-color:#1B82EC">
                                     <div class="card-body">
                                         <div class="mini-stat-desc">
-                                            <h6 class="text-uppercase verti-label text-white-50">Products</h6>
+                                            <h6 class="text-uppercase verti-label text-white-50">Categories</h6>
                                             <div class="text-white">
-                                                <h6 class="text-uppercase mt-0 text-white-50">Products</h6>
-                                                <h3 class="mb-3 mt-0">1,587</h3>
+                                                <h6 class="text-uppercase mt-0 text-white-50">Categories</h6>
+                                                <h3 class="mb-3 mt-0"><?php count_anything('categories'); ?></h3>
                                                 <div class="">
-                                                    <span class="ml-2"><a href="#" class="text-white">More
+                                                    <span class="ml-2"><a href="categories.php" class="text-white">More
                                                             Details..</a></span>
                                                 </div>
                                             </div>
                                             <div class="mini-stat-icon">
-                                                <i class="mdi mdi-blackberry display-2"></i>
+                                                <i class="mdi mdi-bell display-2"></i>
                                             </div>
                                         </div>
                                     </div>

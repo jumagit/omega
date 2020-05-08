@@ -30,49 +30,87 @@ while ($row = mysqli_fetch_array($sql)) {
 <?php
 
 if (isset($_POST['update'])) {
-
+    $productImage = "";
     $productName = clean($_POST['productName']);
     $productStatus = clean($_POST['productStatus']);
     $price = clean($_POST['price']);
     $quantity = clean($_POST['quantity']);
     $rate = clean($_POST['rate']);
     $brandName = clean($_POST['brandName']);
-    $categoryName = clean($_POST['categoryName']); 
-    $productImage = $_POST['productImage'];   
+    $categoryName = clean($_POST['categoryName']);
+    //$productImage = clean($_POST['productImage']);
     $edit_id = clean($_POST['id']);
 
+    //product Image editing
 
-    if($productImage){
+    if (!empty($_FILES['productImage']['name'])) {
+        $type = explode('.', $_FILES['productImage']['name']);
+        $type = $type[count($type) - 1];
+        $url = 'assets/images/stock/' . uniqid(rand()) . '.' . $type;
+        if (in_array($type, array('gif', 'jpg', 'jpeg', 'png', 'JPG', 'GIF', 'JPEG', 'PNG'))) {
+            if (is_uploaded_file($_FILES['productImage']['tmp_name'])) {
+                if (move_uploaded_file($_FILES['productImage']['tmp_name'], $url)) {
+                    $productImage = '../' . $url;
 
-        $query2 = query("UPDATE products SET product_image = '".clean($productImage)."' WHERE  product_id = '$product_id' ");
-    }
+                    if (!empty($categoryName) && !empty($productName) && !empty($price)) {
+                        $sql = "UPDATE products SET product_name = '$productName',product_image='$productImage', brand_id = '$brandName', categories_id = '$categoryName',
+                        quantity = '$quantity', rate = '$rate', active = '$productStatus', status = 1 WHERE product_id = $product_id ";
+                
+                        $update_query = query($sql);
+                
+                        if ($update_query) {
+                            writeLog("Made an edit on the A Product : {$productName}  from {$IP}", $_SESSION['fullName'], "INFO");
+                
+                            $msg = '
+                                <div class="col-lg-12">
+                                    <div class="alert alert-success alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert">×</button> <strong>Well done!</strong> Saving changes! please wait ..............
+                                    </div>
+                                    <script type="text/javascript">setTimeout(function() { window.location.href = "products.php";}, 2000);</script>
+                                 </div>
+                                ';
+                        } else {
+                            die(mysqli_error($connection));
+                        }
+                
+                    }
 
-  
 
-    if (!empty($categoryName) && !empty($productName) && !empty($price)) {
-        $sql = "UPDATE products SET product_name = '$productName', brand_id = '$brandName', categories_id = '$categoryName', 
-        quantity = '$quantity', rate = '$rate', active = '$productStatus', status = 1 WHERE product_id = $product_id ";
+                }
+            }
 
-        $update_query = query($sql);
-
-       
-
-        if ($update_query) {
-            writeLog("Made an edit on the A Product : {$productName}  from {$IP}", $_SESSION['fullName'], "INFO");
-
-            $msg = '
-                <div class="col-lg-12">
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert">×</button> <strong>Well done!</strong> Saving changes! please wait ..............
-                    </div>
-                    <script type="text/javascript">setTimeout(function() { window.location.href = "products.php";}, 2000);</script>
-                 </div>
-                ';
-        } else {
-            die(mysqli_error($connection));
         }
 
+    }else{
+
+        if (!empty($categoryName) && !empty($productName) && !empty($price)) {
+            $sql = "UPDATE products SET product_name = '$productName', brand_id = '$brandName', categories_id = '$categoryName',
+            quantity = '$quantity', rate = '$rate', active = '$productStatus', status = 1 WHERE product_id = $product_id ";
+    
+            $update_query = query($sql);
+    
+            if ($update_query) {
+                writeLog("Made an edit on the A Product : {$productName}  from {$IP}", $_SESSION['fullName'], "INFO");
+    
+                $msg = '
+                    <div class="col-lg-12">
+                        <div class="alert alert-success alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert">×</button> <strong>Well done!</strong> Saving changes! please wait ..............
+                        </div>
+                        <script type="text/javascript">setTimeout(function() { window.location.href = "products.php";}, 2000);</script>
+                     </div>
+                    ';
+            } else {
+                die(mysqli_error($connection));
+            }
+    
+        }
+
+
+
     }
+
+ 
 
 }
 
@@ -139,10 +177,10 @@ if (isset($_POST['update'])) {
                                     <label class="col-sm-1 control-label">: </label>
                                     <div class="col-sm-8">
                                         <!-- the avatar markup -->
-                                        <div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>
-                                        <div class="kv-avatar center-block">
+
+                                        <div class="text-center">
                                             <input type="file" class="form-control" id="productImage"
-                                                placeholder="Product Name" name="productImage" class="file-loading"
+                                                 name="productImage"
                                                 style="width:auto;" />
                                                 <small><img src="<?php echo $product_image; ?>" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="product Image" style="height:80px; width:80px;"></small>
                                         </div>
@@ -196,19 +234,19 @@ if (isset($_POST['update'])) {
                                         <select class="form-control" id="brandName" name="brandName">
 
                                             <?php
-                                                $sql = "SELECT brand_id, brand_name, brand_active, brand_status FROM brands WHERE brand_status = 1 AND brand_active = 1";
-                                                $result = $connection->query($sql);
+$sql = "SELECT brand_id, brand_name, brand_active, brand_status FROM brands WHERE brand_status = 1 AND brand_active = 1";
+$result = $connection->query($sql);
 
-                                                while ($row = $result->fetch_array()) {
+while ($row = $result->fetch_array()) {
 
-                                                    if ($brand_id === $row[0]) {
-                                                        echo "<option selected  value='" . $row[0] . "'>" . $row[1] . "</option>";
-                                                    }
+    if ($brand_id === $row[0]) {
+        echo "<option selected  value='" . $row[0] . "'>" . $row[1] . "</option>";
+    }
 
-                                                    echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
-                                                } // while
+    echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
+} // while
 
-                                                ?>
+?>
                                         </select>
                                     </div>
                                 </div> <!-- /form-group-->
@@ -221,17 +259,17 @@ if (isset($_POST['update'])) {
                                             placeholder="Category Name" name="categoryName">
 
                                             <?php
-                                            $sql = "SELECT categories_id, categories_name, categories_active, categories_status FROM categories WHERE categories_status = 1 AND categories_active = 1";
-                                            $result = $connection->query($sql);
+$sql = "SELECT categories_id, categories_name, categories_active, categories_status FROM categories WHERE categories_status = 1 AND categories_active = 1";
+$result = $connection->query($sql);
 
-                                            while ($row = $result->fetch_array()) {
-                                                if ($categories_id === $row[0]) {
-                                                    echo "<option selected value='" . $row[0] . "'>" . $row[1] . "</option>";
-                                                }
-                                                echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
-                                            } // while
+while ($row = $result->fetch_array()) {
+    if ($categories_id === $row[0]) {
+        echo "<option selected value='" . $row[0] . "'>" . $row[1] . "</option>";
+    }
+    echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
+} // while
 
-                                            ?>
+?>
                                         </select>
                                     </div>
                                 </div> <!-- /form-group-->
@@ -244,14 +282,14 @@ if (isset($_POST['update'])) {
 
                                            <?php
 
-                                            if ($status == 1) {
-                                                echo ' <option disabled selected value="' . $status . '">Available</option>';
-                                            } else {
-                                                echo ' <option disabled selected value="' . $status . '">Not Available</option>';
+if ($status == 1) {
+    echo ' <option disabled selected value="' . $status . '">Available</option>';
+} else {
+    echo ' <option disabled selected value="' . $status . '">Not Available</option>';
 
-                                            }
+}
 
-                                            ?>
+?>
 
                                             <option value="1">Available</option>
                                             <option value="2">Not Available</option>

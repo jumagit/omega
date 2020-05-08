@@ -71,8 +71,8 @@
                                         <th>Brand</th>
                                         <th>Category</th>
                                         <th>Status</th>
-                                        <th><i class="fa fa-th"></i></th>
-                                        <th><i class="fa fa-list"></i></th>
+                                        <th><i class='fa fa-battery-full'></i></th>
+                                        <th><i class='fa fa-battery-empty'></i></th>
                                         <th><i class="fa fa-edit"></i></th>
                                         <th><i class="fa fa-trash"></i></th>
                                     </tr>

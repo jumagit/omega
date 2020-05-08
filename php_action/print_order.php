@@ -154,7 +154,7 @@ $orderItemResult = $connection->query($orderItemSql);
                      <tr class="topHeader">
 
                          <td class="title">
-                             <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:500px;">
+                             <img src="assets/images/logo.png" style="width:40%; ">
                          </td>
                              
                          

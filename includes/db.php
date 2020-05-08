@@ -6,10 +6,11 @@ date_default_timezone_set('Africa/Kampala');
  *  EMAIL CONFIGS
  */
 //
-define('SYSTEM_EMAIL', 'suplywrnemail');
-define('SMTP_PORT', 587);
-define('SMTP_HOST', 'owebsite');
-define('SYSTEM_EMAIL_PASSWORD', 'serverPass');
+define('SYSTEM_EMAIL','mukoovajuma183@gmail.com');
+define('SMTP_PORT',587);
+define('SMTP_HOST','smtp.gmail.com');
+define('SYSTEM_EMAIL_PASSWORD','0702499649juma');
+
 
 //
 //
@@ -47,6 +48,66 @@ function query($sql)
     $sql = mysqli_query($connection, $sql);
 
     return $sql;
+}
+
+
+function sendMail($emailAddress,$subject,$body){
+
+    require_once "../thirdparty/PHPMailer/PHPMailerAutoload.php";
+    $mail = new PHPMailer;
+    $mail->SMTPAuth = true;
+    
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+    //End of Abdi Joseph
+    $mail->isSMTP();
+    $mail->SMTPDebug = false;
+    $mail->do_debug = 1;
+    $mail->Debugoutput = 'html';
+    $mail->SMTPSecure = "tls";
+    $mail->Host = SMTP_HOST;
+    $mail->Port = SMTP_PORT;
+    $mail->Username = SYSTEM_EMAIL;
+    $mail->Password = SYSTEM_EMAIL_PASSWORD;
+    $mail->SetFrom(SYSTEM_EMAIL, 'Online sales');
+    $mail->Subject =  $subject;
+    $mail->addAddress($emailAddress);
+    $mail->isHTML(true);
+    $mail->Body = $body;
+    if(!$mail->send()) // Dont forget to add "!" condition
+    {
+        echo $mail->isError();
+    }
+    else
+    {
+      
+        return true;
+    }
+
+
+
+}
+
+
+function count_anything($table){      
+    
+   $result = "SELECT COUNT(*) AS count FROM $table ";
+   $runx   = query($result);
+   $count_rows = mysqli_fetch_assoc($runx);
+   echo intval($count_rows['count']);
+   
+
+}
+
+
+function f_date($date){
+   
+    return  date_format(date_create($date), ' l jS F Y');
 }
 
 function clean($input)

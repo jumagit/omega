@@ -63,6 +63,9 @@ if ($_REQUEST['t'] == 'true') {
 
             $query = query($orderItemSql);
 
+            //out stock records
+
+
             if ($x == count($_POST['product_name'])) {
                 $orderItemStatus = true;
             }

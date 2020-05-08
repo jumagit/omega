@@ -1,3 +1,40 @@
+function sendMail(orderId) {
+
+    var orderId = orderId;
+
+    $.ajax({
+        type: "POST",
+        url: "php_action/send_email.php?t=true&id=" + orderId,
+        data: { orderId: orderId },
+        dataType: "json",
+        success: function(result) {
+
+            if (result.status) {
+                swal({
+                    title: "Good job!",
+                    padding: 20,
+                    text: "Good Job! Email Sent Successfully!",
+                    type: "success"
+                });
+
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                swal({
+                    title: "Oops!",
+                    padding: 20,
+                    text: result.msg + "..please try again!",
+                    type: "warning"
+                });
+            }
+
+        }
+    });
+}
+
+
+
 function deleteOrder(id) {
     var id = id;
     swal({
@@ -1291,7 +1328,6 @@ function printOrder(orderId) {
 
 
 //remove order
-
 
 
 

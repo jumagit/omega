@@ -75,7 +75,9 @@
                                         <th>Payment Status</th>
                                         <th><i class="fa fa-edit"></i></th>
                                         <th><i class="fa fa-trash"></i></th>
+                                        <th><i class="fa fa-eye"></i></th>
                                         <th><i class='fa fa-print'></i></th>
+                                        <th><i class='fa fa-envelope'></i></th>
                                     </tr>
                                 </thead>
 

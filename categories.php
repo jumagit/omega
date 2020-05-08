@@ -23,8 +23,7 @@
 
                     <h4 class="page-title">Categories</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Categories</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
+                       
                         <li class="breadcrumb-item active">Categories</li>
                     </ol>
                 </div>
@@ -67,8 +66,8 @@
                                         <th>#</th>
                                         <th>Category Name</th>
                                         <th>Category Status</th>
-                                        <th>available</th>
-                                        <th>Not Available</th>
+                                        <th><i class='fa fa-battery-full'></i> Available</th>
+                                        <th><i class='fa fa-battery-empty'></i> Not Available</th>
                                         <th>Edit</th>
                                         <th>Trash</th>
                                     </tr>

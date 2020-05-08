@@ -130,7 +130,12 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="products.php"><i class="mdi mdi-apps"></i>Products</a>
+                                <a href="products.php"><i class="mdi mdi-apps"></i>Stock</a>
+                                <ul class="submenu">
+                                    <li><a href="out_stock.php">Out Stock</a></li>
+                                   
+                                    
+                                </ul>
                             </li>
 
                               <li class="has-submenu">
@@ -148,7 +153,7 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="sales.php"><i class="mdi mdi-basket-fill"></i>Sales</a>
+                                <a href="#"><i class="mdi mdi-basket-fill"></i>Sales</a>
                             </li>                           
 
                           

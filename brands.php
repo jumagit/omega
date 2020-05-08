@@ -67,8 +67,8 @@
                                         <th>#</th>
                                         <th>Brand Name</th>
                                         <th>Brand Status</th>
-                                        <td><i class='fa fa-th'></i> Available</td>
-                                        <td><i class='fa fa-list'></i> Not Available</td>
+                                        <td><i class='fa fa-battery-full'></i> Available</td>
+                                        <td><i class='fa fa-battery-empty'></i> Not Available</td>
                                         <td><i class='fa fa-edit'></i></td>
                                         <td><i class='fa fa-trash'></i></td>
                                     </tr>

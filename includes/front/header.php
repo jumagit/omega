@@ -78,7 +78,7 @@ if (isset($_POST['login'])) {
 
                         $doLoginFeedback = "<div class='alert alert-danger bg-danger message' >                       
                         <p class='text-white font-weight-bold'> <strong> <i class='mdi mdi-close-circle'></i> Sorry!</strong>, Check your Password or Username Used.</p>
-                       <script type='text/javascript'>setTimeout(function() { window.location.href = 'index.php';}, 3000);</script>
+                       <script type='text/javascript'>setTimeout(function() { window.location.href = 'login.php';}, 3000);</script>
                        </div>";
 
                     }

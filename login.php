@@ -11,7 +11,7 @@
 
                     <h3 class="text-center m-0">
                         <a href="index.php" class="logo logo-admin">
-                        <h3>Supply Software</h3>
+                        <img src="frontend/images/logo.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
                         </a>
                     </h3>
 

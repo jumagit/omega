@@ -27,6 +27,20 @@ if ($_REQUEST['t'] == 'true') {
 
     $query = query($sql);
 
+
+
+
+
+
+
+
+
+
+
+
+
+    //email
+
     if ($query) {
         $feed_back = array('status' => true, 'msg' => 'success');
     } else {

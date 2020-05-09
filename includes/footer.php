@@ -57,7 +57,7 @@
      <script src="assets/pages/sweet-alert.init.js"></script>
 
      <!--Chartist Chart-->
-     <script src="plugins/chart.js/chart.min.js"></script>
+     <script src="plugins/chart.min.js"></script>
 
      <!-- App js -->
      <script src="assets/js/app.js"></script>

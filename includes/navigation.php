@@ -168,7 +168,7 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="reports.php"><i class="mdi mdi-finance"></i>Reports</a>
+                                <a href="#"><i class="mdi mdi-finance"></i>Reports</a>
                                
                             </li>
 

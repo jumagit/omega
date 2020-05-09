@@ -51,6 +51,50 @@ function query($sql)
 }
 
 
+
+function sendMailFront($emailAddress,$subject,$body){
+
+    require_once "thirdparty/PHPMailer/PHPMailerAutoload.php";
+    $mail = new PHPMailer;
+    $mail->SMTPAuth = true;
+    
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+    //End of Abdi Joseph
+    $mail->isSMTP();
+    $mail->SMTPDebug = false;
+    $mail->do_debug = 1;
+    $mail->Debugoutput = 'html';
+    $mail->SMTPSecure = "tls";
+    $mail->Host = SMTP_HOST;
+    $mail->Port = SMTP_PORT;
+    $mail->Username = SYSTEM_EMAIL;
+    $mail->Password = SYSTEM_EMAIL_PASSWORD;
+    $mail->SetFrom(SYSTEM_EMAIL, 'Online sales');
+    $mail->Subject =  $subject;
+    $mail->addAddress($emailAddress);
+    $mail->isHTML(true);
+    $mail->Body = $body;
+    if(!$mail->send()) // Dont forget to add "!" condition
+    {
+        echo $mail->isError();
+    }
+    else
+    {
+      
+        return true;
+    }
+
+
+
+}
+
+
 function sendMail($emailAddress,$subject,$body){
 
     require_once "../thirdparty/PHPMailer/PHPMailerAutoload.php";

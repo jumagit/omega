@@ -10,6 +10,7 @@ if ($_REQUEST['t'] == 'true') {
 
     if (isset($_SESSION['fullName'])) {
         $created_by = $_SESSION['fullName'];
+        $client_id = $_SESSION['client_id'];
     }
 
     $orderDate = date('Y-m-d', strtotime(clean($_POST['orderDate'])));
@@ -28,8 +29,8 @@ if ($_REQUEST['t'] == 'true') {
     $gstn = clean($_POST['gstn']);
     $client_id = $_SESSION['client_id'];
 
-    $sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id)
-	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$client_id)";
+    $sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id,client_id)
+	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$client_id,$client_id)";
 
     $order_id;
     $orderStatus = false;

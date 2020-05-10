@@ -5,7 +5,7 @@
 <div id="content">
     <section>
         <div class="hero-wrap py-4 py-md-5">
-            <div class="hero-mask opacity-7 bg-primary"></div>
+            <div class="hero-mask opacity-7 "  style="background-color:purple"></div>
             <div class="hero-bg" style="background-image:url('frontend/images/bg/bg.jpg');"></div>
             <div class="hero-content py-0 py-lg-3">
                 <div class="container">
@@ -20,8 +20,8 @@
                         </div>
 
                         <div class="col-lg-6 mt-5 mt-lg-0">
-                            <h2 class="text-9 font-weight-600 text-light">Why Booking with Quickai ?</h2>
-                            <p class="lead mb-4 text-light">Online Booking. Save Time and Money!</p>
+                            <h2 class="text-9 font-weight-600 text-light">Why Working With Omega ?</h2>
+                            <p class="lead mb-4 text-light">Omega . Save Time and Money!</p>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="featured-box style-3 mb-4">
@@ -130,7 +130,7 @@
 <!-- Refer & Earn end -->
 
 <section class="hero-wrap section shadow-md">
-    <div class="hero-mask opacity-8 bg-primary"></div>
+    <div class="hero-mask opacity-8 "  style="background-color:purple"></div>
     <div class="hero-bg" style="background-image:url('frontend/images/bg/bg.jpg');"></div>
     <div class="hero-content">
         <div class="container">

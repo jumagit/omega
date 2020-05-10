@@ -140,7 +140,7 @@ function sendMail($emailAddress,$subject,$body){
 
 function count_anything($table){      
     
-   $result = "SELECT COUNT(*) AS count FROM $table ";
+   $result = "SELECT COUNT(*) AS count FROM $table WHERE client_id = ".$_SESSION['client_id']."";
    $runx   = query($result);
    $count_rows = mysqli_fetch_assoc($runx);
    echo intval($count_rows['count']);

@@ -10,12 +10,13 @@ if ($_REQUEST['t'] == 'true') {
 
     if (isset($_SESSION['fullName'])) {
         $created_by = $_SESSION['fullName'];
+        $client_id = $_SESSION['client_id'];
     }
 
     $brandName = clean($_POST['brand_name']);
     $brandStatus = clean($_POST['brandStatus']);
 
-    $sql = "INSERT INTO brands (brand_name, brand_active, brand_status,created_by) VALUES ('$brandName', '$brandStatus', 1,'$created_by')";
+    $sql = "INSERT INTO brands (brand_name, brand_active, brand_status,created_by,client_id) VALUES ('$brandName', '$brandStatus', 1,'$created_by','$client_id')";
 
     $query = query($sql);
 

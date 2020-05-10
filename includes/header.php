@@ -8,7 +8,7 @@ session_start();
 
 if( !isset($_SESSION['client_id'])){
 
-    header('Location:index.php');
+    echo '<script type="text/javascript"> alert("You do not have enough Previlages");setTimeout(function() { window.history.back();}, 2000);</script>';
 }
 
 

@@ -129,7 +129,7 @@ function fetch_logs()
 function fetch_brands()
 {
 
-    $sql = "SELECT * FROM brands ORDER BY brand_id DESC";
+    $sql = "SELECT * FROM brands WHERE client_id = ".$_SESSION['client_id']." ORDER BY brand_id DESC";
 
     $result = query($sql);
 
@@ -176,7 +176,7 @@ function fetch_brands()
 function fetch_categories()
 {
 
-    $sql = "SELECT * FROM categories ORDER BY categories_id DESC";
+    $sql = "SELECT * FROM categories WHERE client_id = ".$_SESSION['client_id']." ORDER BY categories_id DESC";
 
     $result = query($sql);
 
@@ -271,7 +271,7 @@ function fetch_products()
     brands.brand_name, categories.categories_name FROM products 
    INNER JOIN brands ON products.brand_id = brands.brand_id 
    INNER JOIN categories ON products.categories_id = categories.categories_id  
-   WHERE  products.quantity>0";
+   WHERE  products.quantity>0 AND  products.client_id = ".$_SESSION['client_id']."";
 
     $result = query($sql);
 
@@ -329,7 +329,7 @@ function fetch_products()
 function fetch_orders()
 {
 
-    $sql = "SELECT order_id, order_date, client_name, client_contact, payment_status FROM orders WHERE order_status = 1";    
+    $sql = "SELECT order_id, order_date, client_name, client_contact, payment_status FROM orders WHERE order_status = 1 AND  client_id = ".$_SESSION['client_id']."";    
 
     $result = query($sql);
 

@@ -78,11 +78,19 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
-                                        <a class="dropdown-item" href="profile.php"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
-                                        <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5"></i> My Wallet</a>
+                                        <?php  if(!isset($_SESSION['client_id'])){?>
+                                            
+                                            <a class="dropdown-item" href="activity_logs.php"><i class="mdi mdi-lock-open-outline m-r-5"></i> History</a>
+                                        
+                                       
+                                       <?php }?>
+                                       <a class="dropdown-item" href="profile.php"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
+                                       
+                                       
+                                       
                                         <a class="dropdown-item d-block" href="settings.php"><i class="mdi mdi-settings m-r-5"></i> Settings</a>
 
-                                        <a class="dropdown-item" href="activity_logs.php"><i class="mdi mdi-lock-open-outline m-r-5"></i> History</a>
+                                      
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item text-danger" href="c_logout.php"><i class="mdi mdi-power text-danger"></i> Logout</a>
                                     </div>                                                                    
@@ -121,24 +129,25 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
 
+                        <?php  if(isset($_SESSION['client_id'])){ ?>
+
                             <li class="has-submenu">
-                                <a href="index.php"><i class="mdi mdi-home"></i>Dashboard</a>
+                                <a href="indexClient.php"><i class="mdi mdi-home"></i>Client Dashboard</a>
                             </li>
 
-                             <li class="has-submenu">
+                            <li class="has-submenu">
                                 <a href="categories.php"><i class="mdi mdi-buffer"></i>Categories</a>
                             </li>
 
                             <li class="has-submenu">
                                 <a href="products.php"><i class="mdi mdi-apps"></i>Stock</a>
                                 <ul class="submenu">
-                                    <li><a href="out_stock.php">Out Stock</a></li>
-                                   
+                                    <li><a href="out_stock.php">Out Stock</a></li>                                 
                                     
                                 </ul>
                             </li>
 
-                              <li class="has-submenu">
+                            <li class="has-submenu">
                                 <a href="brands.php"><i class="mdi mdi-cards"></i>Brands</a>
                             </li>
 
@@ -156,7 +165,21 @@
                                 <a href="#"><i class="mdi mdi-basket-fill"></i>Sales</a>
                             </li>                           
 
-                          
+
+                            <li class="has-submenu">
+                                <a href="#"><i class="mdi mdi-finance"></i>Reports</a>
+                               
+                            </li>
+
+
+
+                            <?php  }else{ ?>
+
+                                <li class="has-submenu">
+                                <a href="indexMain.php"><i class="mdi mdi-home"></i>Admin Dashboard</a>
+                            </li>
+
+                            
                             <li class="has-submenu">
                                 <a href="clients.php"><i class="mdi mdi-account-multiple"></i>Suppliers</a>
                                
@@ -167,11 +190,14 @@
                                
                             </li>
 
-                            <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-finance"></i>Reports</a>
-                               
-                            </li>
 
+                            <?php  } ?>
+
+                        
+
+                           
+                          
+                            
 
 
                         </ul>

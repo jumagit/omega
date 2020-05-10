@@ -117,7 +117,7 @@ if (isset($_POST['login'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="images/favicon.png" rel="icon" />
 
-<title>Quickai - downloaded from themelock.com - Recharge & Bill Payment, Booking HTML5 Template</title>
+<title>Omega Sales</title>
 <meta name="description" content="Quickai - Recharge & Bill Payment, Booking HTML5 Template">
 <meta name="author" content="harnishdesign.net">
 
@@ -162,7 +162,7 @@ if (isset($_POST['login'])) {
           <!-- Primary Navigation
           ============================================= -->
           <nav class="primary-menu navbar navbar-expand-lg">
-            <div id="header-nav" class="collapse navbar-collapse">
+            <div id="header-nav" class="collapse navbar-collapse" >
               <ul class="navbar-nav">
 			  <li class="dropdown"> <a class="dropdown-toggle" href="#">Home</a>
                   <ul class="dropdown-menu">

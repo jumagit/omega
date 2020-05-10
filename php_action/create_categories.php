@@ -10,13 +10,14 @@ if ($_REQUEST['t'] == 'true') {
 
     if (isset($_SESSION['fullName'])) {
         $created_by = $_SESSION['fullName'];
+        $client_id = $_SESSION['client_id'];
     }
 
     $categoriesName = $_POST['categoriesName'];
     $categoriesStatus = $_POST['categoriesStatus'];
 
-    $sql = "INSERT INTO categories (categories_name, categories_active, categories_status,created_by)
-	VALUES ('$categoriesName', '$categoriesStatus', '1','$created_by')";
+    $sql = "INSERT INTO categories (categories_name, categories_active, categories_status,created_by,client_id)
+	VALUES ('$categoriesName', '$categoriesStatus', '1','$created_by','$client_id')";
 
     $query = query($sql);
 

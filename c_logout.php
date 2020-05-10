@@ -23,7 +23,7 @@ if(writeLog("logged out from {$IP}",$_SESSION['username'],"INFO"))
         unset($_SESSION['user_id']);
         unset($_SESSION['computerName']);
         unset($_SESSION['fullName']);
-        header("location: index.php");
+        header("location: ".URL."index.php");
     }
 
 }

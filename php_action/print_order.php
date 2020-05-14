@@ -314,6 +314,7 @@ $orderItemResult = $connection->query($orderItemSql);
      </table>';
 $connection->close();
 
+
 echo $table;
 
 		}

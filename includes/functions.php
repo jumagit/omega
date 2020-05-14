@@ -266,10 +266,9 @@ function fetch_clients()
 function fetch_products()
 {
 
-    $sql = "SELECT products.product_id, products.product_name, products.product_image, products.brand_id,
+    $sql = "SELECT products.product_id, products.product_name, products.product_image,
     products.categories_id, products.quantity, products.rate, products.active, products.status, 
-    brands.brand_name, categories.categories_name FROM products 
-   INNER JOIN brands ON products.brand_id = brands.brand_id 
+     categories.categories_name FROM products   
    INNER JOIN categories ON products.categories_id = categories.categories_id  
    WHERE  products.quantity>0 AND  products.client_id = ".$_SESSION['client_id']."";
 
@@ -287,10 +286,10 @@ function fetch_products()
             $product_id = $trailRow[0];
            // $product_image = $trailRow[2];
             $product_image  = substr($trailRow[2], 3);
-            $product_brand = $trailRow[10];
-            $product_category = $trailRow[9];
+            // $product_brand = $trailRow[10];
+            $product_category = $trailRow[8];
             $product_name = $trailRow[1];          
-            $quantity = $trailRow[5];
+            $quantity = $trailRow[4];
             $status  =  $trailRow[8];
 
             if ($status == 1) {
@@ -307,7 +306,7 @@ function fetch_products()
            <td><img src='{$product_image}' width='50' height='50' alt='Product Image'></td>
            <td>{$product_name}</td>  
            <td>{$quantity}</td> 
-           <td>{$product_brand}</td>       
+                
            <td>{$product_category}</td>
            <td>{$status}</td>
            <td><a onclick='pMakeAvailable($product_id)' class='text-info'><i class='fa fa-battery-full'></i> Available  </a></td>
@@ -389,9 +388,11 @@ function fetch_orders()
            <td><a onclick='edit_order($order_id)' class='text-success'><i class='fa fa-edit'></i></a></td>
            <td><a onclick='deleteOrder($order_id)' class='text-danger'><i class='fa fa-trash '></i></a></td>
            <td><a href='invoice.php?id=$order_id' class='text-dark'><i class='fa fa-eye'></i></a></td>
-           <td><a onclick='printOrder($order_id)' class='text-dark'><i class='fa fa-print'></i></a></td>
+          <td><a href='orders_report.php?id=$order_id' class='text-dark'><i class='fa fa-print'></i></a></td>
            <td><a onclick='sendMail($order_id)' class='text-dark'><i class='fa fa-envelope'></i></a></td>
            </tr>";
+
+           // <td><a onclick='printOrder($order_id)' class='text-dark'><i class='fa fa-print'></i></a></td>
 
         }
 

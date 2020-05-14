@@ -67,12 +67,11 @@
                                         <th>#</th>
                                         <th>Image</th>
                                         <th>Product Name</th>
-                                        <th>Quantity</th>
-                                        <th>Brand</th>
+                                        <th>Quantity</th>                                       
                                         <th>Category</th>
                                         <th>Status</th>
-                                        <th><i class='fa fa-battery-full'></i></th>
-                                        <th><i class='fa fa-battery-empty'></i></th>
+                                        <th><i class='fa fa-battery-full'></i> Available</th>
+                                        <th><i class='fa fa-battery-empty'></i> Not Available</th>
                                         <th><i class="fa fa-edit"></i></th>
                                         <th><i class="fa fa-trash"></i></th>
                                     </tr>
@@ -178,34 +177,16 @@
 
                                
 
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="rate" class="col-sm-3 control-label">Rate: </label>
                                     <label class="col-sm-1 control-label">: </label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="rate" placeholder="Rate" name="rate"
                                             autocomplete="off">
                                     </div>
-                                </div> <!-- /form-group-->
+                                </div> -->
 
-                                <div class="form-group row">
-                                    <label for="brandName" class="col-sm-3 control-label">Brand Name: </label>
-                                    <label class="col-sm-1 control-label">: </label>
-                                    <div class="col-sm-8">
-                                        <select class="form-control" id="brandName" name="brandName">
-                                            <option value="">~~SELECT~~</option>
-                                            <?php 
-				      	$sql = "SELECT brand_id, brand_name, brand_active, brand_status FROM brands WHERE brand_status = 1 AND brand_active = 1";
-								$result = $connection->query($sql);
-
-								while($row = $result->fetch_array()) {
-									echo "<option value='".$row[0]."'>".$row[1]."</option>";
-								} // while
-								
-				      	?>
-                                        </select>
-                                    </div>
-                                </div> <!-- /form-group-->
-
+                               
                                 <div class="form-group row">
                                     <label for="categoryName" class="col-sm-3 control-label">Category Name: </label>
                                     <label class="col-sm-1 control-label">: </label>
@@ -214,7 +195,7 @@
                                             placeholder="Product Name" name="categoryName">
                                             <option value="">~~SELECT~~</option>
                                             <?php 
-				      	$sql = "SELECT categories_id, categories_name, categories_active, categories_status FROM categories WHERE categories_status = 1 AND categories_active = 1";
+				      	       $sql = "SELECT categories_id, categories_name FROM categories WHERE categories_active = 1 AND client_id = '{$_SESSION['client_id']}' ";
 								$result = $connection->query($sql);
 
 								while($row = $result->fetch_array()) {

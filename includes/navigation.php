@@ -27,6 +27,10 @@
                                     </div>
                                 </form> 
                             </li>
+
+                           
+
+                           
     
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -78,12 +82,16 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
-                                        <?php  if(!isset($_SESSION['client_id'])){?>
-                                            
+                                       
+                                        <?php  if(isset($_SESSION['user_id']) ){ ?>
                                             <a class="dropdown-item" href="activity_logs.php"><i class="mdi mdi-lock-open-outline m-r-5"></i> History</a>
+
+                                        <?php }else{ ?>
+
+                                              <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Happenings</a>
                                         
                                        
-                                       <?php }?>
+                                      <?php } ?>
                                        <a class="dropdown-item" href="profile.php"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
                                        
                                        
@@ -109,6 +117,24 @@
                                 <!-- End mobile menu toggle-->
                             </li>
 
+
+                             <li class="dropdown-item-text pt-2">
+                                <h6 class="text-white">
+                                    
+                                    <?php 
+
+                                    if (isset($_SESSION['client_id'])) {
+                                       echo '<span class="btn btn-info">'.$_SESSION['fullName'].'<span>';
+                                    }else if(isset($_SESSION['user_id'])){
+                                         echo '<span class="btn btn-info">'.$_SESSION['sname'].'<span>';
+                                    }else{
+                                         echo '<span class="btn btn-info">No User<span>';
+                                    }
+
+                                     ?>
+                                </h6>
+                            </li>
+
                         </ul>
     
     
@@ -129,7 +155,7 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
 
-                        <?php  if(isset($_SESSION['client_id'])){ ?>
+                        <?php  if(isset($_SESSION['client_id']) && !isset($_SESSION['user_id'])){ ?>
 
                             <li class="has-submenu">
                                 <a href="indexClient.php"><i class="mdi mdi-home"></i>Client Dashboard</a>
@@ -147,16 +173,13 @@
                                 </ul>
                             </li>
 
-                            <li class="has-submenu">
-                                <a href="brands.php"><i class="mdi mdi-cards"></i>Brands</a>
-                            </li>
-
+                           
 
                             <li class="has-submenu">
                                 <a href="orders.php"><i class="mdi mdi-cart-plus"></i>Orders</a>
                                 <ul class="submenu">
                                     <li><a href="create_order.php">Create Order</a></li>
-                                    <!-- <li><a href="email-read.html">Email Read</a></li> -->
+                                    
                                     
                                 </ul>
                             </li>
@@ -167,7 +190,7 @@
 
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-finance"></i>Reports</a>
+                                <a href="reports.php"><i class="mdi mdi-finance"></i>Reports</a>
                                
                             </li>
 
@@ -187,6 +210,11 @@
 
                               <li class="has-submenu">
                                 <a href="users.php"><i class="mdi mdi-account-multiple-plus"></i>Users</a>
+                               
+                            </li>
+
+                            <li class="has-submenu">
+                                <a href="adminReport.php"><i class="mdi mdi-finance"></i>General Report</a>
                                
                             </li>
 

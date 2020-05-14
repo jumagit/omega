@@ -94,6 +94,28 @@ function sendMailFront($emailAddress,$subject,$body){
 
 }
 
+function printReport($html,$subject){
+
+    global $connection;
+    require_once('thirdparty/mpdf/mpdf.php');
+    $mpdf=new mPDF('c');
+    $mpdf->mirrorMargins = 1;
+    $mpdf->SetDisplayMode('fullpage');
+    //$mpdf->SetWatermarkImage(URL.'static/images/logo-large.png');
+    $mpdf->showWatermarkImage = true;
+    $mpdf->SetTitle($subject);
+    //$mpdf->SetHTMLHeader($header);
+    //$mpdf->SetHTMLFooter($footer);
+    
+    // LOAD a stylesheet
+    $stylesheet = file_get_contents('upgrade/css/bootstrap.min.css');
+    $mpdf->WriteHTML($stylesheet,1); // The parameter 1 tells that this is css/style only and no body/html/text
+    $mpdf->WriteHTML($html);
+    // Output a PDF file directly to the browser
+    $mpdf->Output($subject.mt_rand(0,9999).".pdf","i");
+
+}
+
 
 function sendMail($emailAddress,$subject,$body){
 
@@ -147,6 +169,26 @@ function count_anything($table){
    
 
 }
+
+function count_val($table){
+
+        $result = "SELECT COUNT(*) FROM $table WHERE  client_id = ".$_SESSION['client_id']." ";                         
+            $c_result1 = query($result);
+            $c_return1    = mysqli_fetch_assoc($c_result1);
+            //var_dump($c_return1);
+           return intval($c_return1['COUNT(*)']);
+}
+
+
+function count_admin($table){
+
+        $result = "SELECT COUNT(*) FROM $table ";                         
+            $c_result1 = query($result);
+            $c_return1    = mysqli_fetch_assoc($c_result1);
+            //var_dump($c_return1);
+           echo intval($c_return1['COUNT(*)']);
+}
+
 
 
 function f_date($date){

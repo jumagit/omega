@@ -38,76 +38,76 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-3 col-md-6">
-                    <div class="card  mini-stat position-relative"  style="background-color:#3ea123">
+                    <div class="card  mini-stat position-relative"  style="background-color:#EBF8A4;border:2px solid #35a989 !important;">
                         <div class="card-body">
                             <div class="mini-stat-desc">
-                                <h6 class="text-uppercase verti-label text-white-50">Orders</h6>
-                                <div class="text-white">
-                                    <h6 class="text-uppercase mt-0 text-white-50">Orders</h6>
-                                    <h3 class="mb-3 mt-0"><?php count_anything('orders'); ?></h3>
+                                <h6 class="text-uppercase verti-label text-dark-50">Orders</h6>
+                                <div class="text-dark">
+                                    <h6 class="text-uppercase mt-0 text-dark-50">Orders</h6>
+                                    <h3 class="mb-3 mt-0"><?php count_admin('orders'); ?></h3>
                                     <div class="">
-                                        <span class="ml-2"><a href="orders.php"   class="text-white">More Details..</a></span>
+                                        <span class="ml-2"><a href="orders.php"   class="text-dark">More Details..</a></span>
                                     </div>
                                 </div>
                                 <div class="mini-stat-icon">
-                                    <i class="mdi mdi-cube-outline display-2"></i>
+                                    <i class="mdi mdi-cube-outline display-2 text-secondary"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary mini-stat position-relative">
+                    <div class="card  mini-stat position-relative" style="background-color:#EBF8A4;border:2px solid #35a989 !important;">
                         <div class="card-body">
                             <div class="mini-stat-desc">
-                                <h6 class="text-uppercase verti-label text-white-50">Suppliers</h6>
-                                <div class="text-white">
-                                    <h6 class="text-uppercase mt-0 text-white-50">Suppliers</h6>
-                                    <h3 class="mb-3 mt-0"><?php count_anything('clients'); ?></h3>
+                                <h6 class="text-uppercase verti-label text-dark-50">Suppliers</h6>
+                                <div class="text-dark">
+                                    <h6 class="text-uppercase mt-0 text-dark-50">Suppliers</h6>
+                                    <h3 class="mb-3 mt-0"><?php count_admin('clients'); ?></h3>
                                     <div class="">
-                                    <span class="ml-2"><a href="clients.php"   class="text-white">More Details..</a></span>
+                                    <span class="ml-2"><a href="clients.php"   class="text-dark">More Details..</a></span>
                                     </div>
                                 </div>
-                                <div class="mini-stat-icon">
-                                    <i class="mdi mdi-account-group display-2"></i>
+                                <div class="mini-stat-icon ">
+                                    <i class="mdi mdi-account-group display-2 text-secondary"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
-                    <div class="card  mini-stat position-relative" style="background-color:purple">
+                    <div class="card  mini-stat position-relative" style="background-color:#EBF8A4;border:2px solid #35a989 !important;">
                         <div class="card-body">
                             <div class="mini-stat-desc">
-                                <h6 class="text-uppercase verti-label text-white-50">Av. Price</h6>
-                                <div class="text-white">
-                                    <h6 class="text-uppercase mt-0 text-white-50">Average Price</h6>
+                                <h6 class="text-uppercase verti-label text-dark-50">Av. Price</h6>
+                                <div class="text-dark">
+                                    <h6 class="text-uppercase mt-0 text-dark-50">Average Price</h6>
                                     <h3 class="mb-3 mt-0">15.9</h3>
                                     <div class="">
-                                    <span class="ml-2"><a href="#" class="text-white">More Details..</a></span>
+                                    <span class="ml-2"><a href="#" class="text-dark">More Details..</a></span>
                                     </div>
                                 </div>
                                 <div class="mini-stat-icon">
-                                    <i class="mdi mdi-tag-text-outline display-2"></i>
+                                    <i class="mdi mdi-tag-text-outline display-2 text-secondary"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
-                    <div class="card bg-dark mini-stat position-relative">
+                    <div class="card text-dark mini-stat position-relative"  style="background-color:#EBF8A4;border:2px solid #35a989 !important;">
                         <div class="card-body">
                             <div class="mini-stat-desc">
-                                <h6 class="text-uppercase verti-label text-white-50">Pr. Sold</h6>
-                                <div class="text-white">
-                                    <h6 class="text-uppercase mt-0 text-white-50">Product Sold</h6>
-                                    <h3 class="mb-3 mt-0"><?php count_anything('products'); ?></h3>
+                                <h6 class="text-uppercase verti-label text-dark-50">Pr. Sold</h6>
+                                <div class="text-dark">
+                                    <h6 class="text-uppercase mt-0 text-dark-50">Product Sold</h6>
+                                    <h3 class="mb-3 mt-0"><?php  count_admin('products'); ?></h3>
                                     <div class="">
-                                    <span class="ml-2"><a href="products.php"  class="text-white">More Details..</a></span>
+                                    <span class="ml-2"><a href="products.php"  class="text-dark">More Details..</a></span>
                                     </div>
                                 </div>
                                 <div class="mini-stat-icon">
-                                    <i class="mdi mdi-briefcase-check display-2"></i>
+                                    <i class="mdi mdi-briefcase-check display-2 text-secondary"></i>
                                 </div>
                             </div>
                         </div>
@@ -122,29 +122,19 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mt-0 header-title mb-4">PIE CHART</h4>
-                            <canvas id="pie" height="300"></canvas>
+                            <canvas id="admin_pie" height="300"></canvas>
                         </div>
                     </div>
                 </div>
                 
                 <!-- end col -->
 
-                <div class="col-xl-4">
+
+                <div class="col-xl-8">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mt-0 header-title mb-4">SALES ANALYSIS</h4>
-                            <canvas id="lineChart" height="300"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- end col -->
-
-                <div class="col-xl-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="mt-0 header-title mb-4">Sales Analytics</h4>
-                            <canvas id="bar" height="300"></canvas>
+                            <h4 class="mt-0 header-title mb-4">SALES ANALYTICS</h4>
+                            <canvas id="adminOrders" height="150"></canvas>
                         </div>
                     </div>
                 </div>

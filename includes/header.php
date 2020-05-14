@@ -6,9 +6,9 @@ ob_start();
 session_start();
 
 
-if( !isset($_SESSION['client_id'])){
+if(!isset($_SESSION['client_id'])){
 
-    echo '<script type="text/javascript"> alert("You do not have enough Previlages");setTimeout(function() { window.history.back();}, 2000);</script>';
+    header("Location: index.php");
 }
 
 

@@ -15,9 +15,9 @@ if ($_REQUEST['t'] == 'true') {
 
     $productName = clean($_POST['productName']);    
     $quantity = clean($_POST['quantity']);
-    $rate =     clean($_POST['rate']);
+    
     $price = money(clean($_POST['price']));
-    $brandName = clean($_POST['brandName']);
+    
     $categoryName = clean($_POST['categoryName']);
     $productStatus = clean($_POST['productStatus']);
 
@@ -28,8 +28,8 @@ if ($_REQUEST['t'] == 'true') {
         if (is_uploaded_file($_FILES['productImage']['tmp_name'])) {
             if (move_uploaded_file($_FILES['productImage']['tmp_name'], $url)) {
 
-                $sql = "INSERT INTO products (product_name, product_image, brand_id, categories_id, quantity,price, rate, active, status, created_by,client_id)
-				VALUES ('$productName', '$url', '$brandName', '$categoryName', '$quantity', '$price',  '$rate', '$productStatus', 1, '$created_by','$client_id')";
+                $sql = "INSERT INTO products (product_name, product_image, categories_id, quantity,price, active, status, created_by,client_id)
+				VALUES ('$productName', '$url',  '$categoryName', '$quantity', '$price',  '$productStatus', 1, '$created_by','$client_id')";
                 $query = query($sql);
                 if ($query) {
                     $feed_back = array('status' => true, 'msg' => 'success');

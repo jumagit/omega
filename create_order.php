@@ -161,7 +161,7 @@
                                                             onchange="getProductData(<?php echo $x; ?>)">
                                                             <option selected> ~~ Select Product ~~</option>
                                                             <?php
-                                                                $productSql = "SELECT * FROM products WHERE quantity > 0";
+                                                                $productSql = "SELECT * FROM products WHERE quantity > 0 AND client_id =  '{$_SESSION['client_id']}' ";
                                                                 $productData = $connection->query($productSql);
 
                                                                 while($row = mysqli_fetch_array($productData)) {									 		
@@ -367,8 +367,8 @@
                                                         <select class="form-control" required name="paymentPlace"
                                                             id="paymentPlace">
                                                             <option value="">~~SELECT~~</option>
-                                                            <option value="1">In Gujarat</option>
-                                                            <option value="2">Out Of Gujarat</option>
+                                                            <option value="1">In Uganda</option>
+                                                            <option value="2">Out Of Uganda</option>
                                                         </select>
                                                     </div>
                                                 </div>

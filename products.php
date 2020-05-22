@@ -113,7 +113,7 @@
             </div>
             <div class="modal-body">
 
-                <div class="card m-b-20">
+                <div class=" ">
                     <div class="card-body">
 
 

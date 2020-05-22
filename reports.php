@@ -57,7 +57,7 @@
                             <div class="col-md-8 m-auto">
 
 
-                                  <form action="general_report.php" method="POST" class="form-horizontal">
+                                  <form action="general_report.php" target="_blank" method="POST" class="form-horizontal">
                             
 
                              <div class="form-group row">

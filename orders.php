@@ -63,7 +63,7 @@
 
 
                             <table id="datatable-buttons"
-                                class="table table-striped table-bordered dt-responsive nowrap"
+                                class="table table-striped table-bordered dt-responsive nowrap text-center"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
@@ -74,10 +74,11 @@
                                         <th>Total Order Item</th>
                                         <th>Payment Status</th>
                                         <th><i class="fa fa-edit"></i></th>
-                                        <th><i class="fa fa-trash"></i></th>
                                         <th><i class="fa fa-eye"></i></th>
+                                        <th><i class="fas fa-credit-card"></i></th>
                                         <th><i class='fa fa-print'></i></th>
                                         <th><i class='fa fa-envelope'></i></th>
+                                        <th><i class="fa fa-trash"></i></th>
                                     </tr>
                                 </thead>
 
@@ -101,6 +102,66 @@
 <!-- page wrapper end -->
 
 <!-- Footer -->
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true" id="paymentOrderModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #015C9B;">
+                <h5 class="modal-title text-white mt-0" id="myLargeModalLabel"> <i class="fa fa-credit-card">   </i> Edit Payment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body" style="max-height:500px; overflow:auto;">
+                <div class="form-group row">
+                    <label for="due" class="col-sm-3 control-label">Due Amount</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="due" name="due" disabled="true" />
+                    </div>
+                </div>
+                <!--/form-group-->
+                <div class="form-group row">
+                    <label for="payAmount" class="col-sm-3 control-label">Pay Amount</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="payAmount" name="payAmount" />
+                    </div>
+                </div>
+                <!--/form-group-->
+                <div class="form-group row">
+                    <label for="clientContact" class="col-sm-3 control-label">Payment Type</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="paymentType" id="paymentType">
+                            <option value="">~~SELECT~~</option>
+                            <option value="1">Cheque</option>
+                            <option value="2">Cash</option>
+                            <option value="3">Credit Card</option>
+                        </select>
+                    </div>
+                </div>
+                <!--/form-group-->
+                <div class="form-group row">
+                    <label for="clientContact" class="col-sm-3 control-label">Payment Status</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="paymentStatus" id="paymentStatus">
+                            <option value="">~~SELECT~~</option>
+                            <option value="1">Full Payment</option>
+                            <option value="2">Advance Payment</option>
+                            <option value="3">No Payment</option>
+                        </select>
+                    </div>
+                </div>
+                <!--/form-group-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="fa fa-close"></i>
+                        Close</button>
+                    <button type="button" class="btn btn-primary" id="updatePaymentOrderBtn"
+                        data-loading-text="Loading..."> <i class="fa fa-save"></i> Save changes</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 
 

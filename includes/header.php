@@ -6,10 +6,23 @@ ob_start();
 session_start();
 
 
-if(!isset($_SESSION['client_id'])){
+error_reporting(0);
 
-    header("Location: index.php");
+
+
+
+
+if(!isset($_SESSION['client_id']) AND $_SESSION['client_id'] == '' || !isset($_SESSION['user_id']) AND $_SESSION['user_id'] == '')
+{
+
+  header('Location:index.php');
+ 
 }
+
+
+
+
+
 
 
 include "includes/functions.php";

@@ -45,7 +45,7 @@
 
 
             $.post('php_action/admin_charts.php', function(data, textStatus, xhr) {
-                    console.log(data.labels);
+                   
                     var date = [];
                     var grand_total = [];
                     var prod = [];
@@ -96,7 +96,7 @@
 
            function admin_pie_chart(){
               $.post('php_action/admin_piecharts.php', function(data, textStatus, xhr) {
-                    console.log(data);
+                   // console.log(data);
                     var item = ['products','orders','order-items','categories'];
                     var total = data;
 
@@ -129,7 +129,7 @@
                     var graphTarget = $("#admin_pie");
 
                     var barGraph = new Chart(graphTarget, {
-                         type: 'bar',
+                         type: 'pie',
                          data: pieChart
                     });
 

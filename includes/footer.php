@@ -23,7 +23,7 @@
 
      <!-- jQuery  -->
      <script src="assets/js/jquery.min.js"></script>
-     <script src="assets/js/bootstrap.bundle.min.js"></script>
+ 
      <script src="assets/js/jquery.slimscroll.js"></script>
      <script src="assets/js/waves.min.js"></script>
 
@@ -70,6 +70,8 @@
      <script src="assets/js/Chart.min.js"></script>
      
      <script src="assets/js/charts.js"> </script>
+
+     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
        <script>
         $(document).ready(function() {

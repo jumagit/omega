@@ -100,7 +100,7 @@
 
                                       
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item text-danger" href="c_logout.php"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                        <a class="dropdown-item text-danger" href="php_action/general_logout.php"><i class="mdi mdi-power text-danger"></i> Logout</a>
                                     </div>                                                                    
                                 </div>
                             </li>
@@ -126,7 +126,7 @@
                                     if (isset($_SESSION['client_id'])) {
                                        echo '<span class="btn btn-info">'.$_SESSION['fullName'].'<span>';
                                     }else if(isset($_SESSION['user_id'])){
-                                         echo '<span class="btn btn-info">'.$_SESSION['sname'].'<span>';
+                                         echo '<span class="btn btn-info">'.$_SESSION['fullName'].'<span>';
                                     }else{
                                          echo '<span class="btn btn-info">No User<span>';
                                     }
@@ -162,11 +162,11 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="categories.php"><i class="mdi mdi-buffer"></i>Categories</a>
+                                <a href="categories.php"><i class="mdi mdi-buffer"></i>Categories Section</a>
                             </li>
 
                             <li class="has-submenu">
-                                <a href="products.php"><i class="mdi mdi-apps"></i>Stock</a>
+                                <a href="products.php"><i class="mdi mdi-apps"></i>Stock Section</a>
                                 <ul class="submenu">
                                     <li><a href="out_stock.php">Out Stock</a></li>                                 
                                     
@@ -176,7 +176,7 @@
                            
 
                             <li class="has-submenu">
-                                <a href="orders.php"><i class="mdi mdi-cart-plus"></i>Orders</a>
+                                <a href="orders.php"><i class="mdi mdi-cart-plus"></i>Orders Section</a>
                                 <ul class="submenu">
                                     <li><a href="create_order.php">Create Order</a></li>
                                     
@@ -185,12 +185,12 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-basket-fill"></i>Sales</a>
+                                <a href="#"><i class="mdi mdi-basket-fill"></i>Sales Section</a>
                             </li>                           
 
 
                             <li class="has-submenu">
-                                <a href="reports.php"><i class="mdi mdi-finance"></i>Reports</a>
+                                <a href="reports.php"><i class="mdi mdi-finance"></i>Reports Section</a>
                                
                             </li>
 

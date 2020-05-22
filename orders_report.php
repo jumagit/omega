@@ -310,7 +310,20 @@ $orderItemResult = $connection->query($orderItemSql);
      </table>';
 
 
- printReport($table, 'Print my order');
+ //printReport($table, 'Print my order');
+     require("fpdf/fpdf.php");
+     $pdf = new FPDF('p','mm', 'A4');
+
+    $pdf->Addpage();
+
+
+    $pdf->SetFont('Arial','B',10);
+
+   $pdf->write(5,$table);
+
+    $pdf->OutPut();
+    
+   
 
  
  ?>

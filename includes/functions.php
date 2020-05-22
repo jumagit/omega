@@ -372,7 +372,7 @@ function fetch_orders()
             //  if($payment_status == 1){
             //      $payment_status = "Full Payment";
             //  }else if($payment_status == 2){
-            //      $payment_status = "Advance Payment";
+            //      $payment_status = "Advance Payment";paymentOrderModal
             //  }else{
             //      $payment_status = "No Payment"; 
             //  }
@@ -385,11 +385,14 @@ function fetch_orders()
            <td>{$client_contact}</td>
            <td>{$itemCountRow[0]}</td>           
            <td>$payment_status</td>
-           <td><a onclick='edit_order($order_id)' class='text-success'><i class='fa fa-edit'></i></a></td>
-           <td><a onclick='deleteOrder($order_id)' class='text-danger'><i class='fa fa-trash '></i></a></td>
-           <td><a href='invoice.php?id=$order_id' class='text-dark'><i class='fa fa-eye'></i></a></td>
-          <td><a href='orders_report.php?id=$order_id' class='text-dark'><i class='fa fa-print'></i></a></td>
-           <td><a onclick='sendMail($order_id)' class='text-dark'><i class='fa fa-envelope'></i></a></td>
+           <td><a href='edit_order.php?id=$order_id' class='badge badge-info text-white'><i class='fa fa-edit'></i></a></td>
+      
+           <td><a href='invoice.php?id=$order_id'  class='badge badge-success text-white'><i class='fa fa-eye'></i></a></td>
+            <td><a type='button'   class='badge badge-primary text-white' data-toggle='modal' id='paymentOrderModalBtn' data-target='#paymentOrderModal' onclick='paymentOrder($order_id)'> <i class='fas fa-credit-card'></i> Pay</a></td>
+          
+           <td><a href='report_order.php?id=$order_id'   target='_blank' class='badge badge-primary text-white'><i class='fa fa-print'></i></a></td>
+           <td><a onclick='sendMail($order_id)'  class='badge badge-dark text-white'><i class='fa fa-envelope'></i></a></td>
+           <td><a onclick='deleteOrder($order_id)' class='badge badge-danger text-white'><i class='fa fa-trash '></i></a></td>
            </tr>";
 
            // <td><a onclick='printOrder($order_id)' class='text-dark'><i class='fa fa-print'></i></a></td>

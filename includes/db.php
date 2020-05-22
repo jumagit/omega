@@ -15,7 +15,7 @@ define('SYSTEM_EMAIL_PASSWORD','0702499649juma');
 //
 //
 define('URL_PUBLIC_FOLDER', 'static');
-define('URL_PROTOCOL', 'http://');
+define('URL_PROTOCOL', 'https://');
 define('URL_DOMAIN', $_SERVER['HTTP_HOST']);
 define('URL_SUB_FOLDER', str_replace(URL_PUBLIC_FOLDER, '', dirname($_SERVER['SCRIPT_NAME'])));
 
@@ -172,7 +172,7 @@ function count_anything($table){
 
 function count_val($table){
 
-        $result = "SELECT COUNT(*) FROM $table WHERE  client_id = ".$_SESSION['client_id']." ";                         
+        $result = "SELECT COUNT(*) FROM $table  ";                         
             $c_result1 = query($result);
             $c_return1    = mysqli_fetch_assoc($c_result1);
             //var_dump($c_return1);

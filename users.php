@@ -8,25 +8,13 @@
     <div class="page-title-box">
         <div class="container-fluid">
 
+           
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="state-information d-none d-sm-block">
-                        <div class="state-graph">
-                            <div id="header-chart-1"></div>
-                            <div class="info">Balance $ 2,317</div>
-                        </div>
-                        <div class="state-graph">
-                            <div id="header-chart-2"></div>
-                            <div class="info">Item Sold 1230</div>
-                        </div>
-                    </div>
+                <div class="col-sm-12 text-center">
+                    
 
-                    <h4 class="page-title">Users</h4>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Users</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-                        <li class="breadcrumb-item active">Users</li>
-                    </ol>
+                    <h2 class="text-white"> <i class="fa fa-users"></i> Registered Members</h2>
+                    
                 </div>
             </div>
         </div>
@@ -45,7 +33,7 @@
 
                             <h4 class="mt-0 header-title">View All Users</h4>
 
-                            <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show"
+                            <div class="alert alert-info  font-weight-normal  alert-dismissible fade show"
                                 role="alert"> <button type="button" class="close" data-dismiss="alert"
                                     aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -63,7 +51,7 @@
                             <table id="datatable-buttons"
                                 class="table table-striped table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                <thead>
+                                <thead style="background-color: #002F47; color: #fff;">
                                     <tr>
                                         <th>#</th>
                                         <th>Full Names</th>
@@ -73,7 +61,7 @@
                                         <th>User Role</th>                                      
                                         <th>Admin </th>
                                         <th>Revoke </th>
-                                        <th>Deactivate Account</th>
+                                        <th>Deactivate </th>
                                         <th>Edit </th>
                                         <th>Trash </th>
                                     </tr>

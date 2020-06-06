@@ -8,25 +8,13 @@
     <div class="page-title-box">
         <div class="container-fluid">
 
+           
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="state-information d-none d-sm-block">
-                        <div class="state-graph">
-                            <div id="header-chart-1"></div>
-                            <div class="info">Balance $ 2,317</div>
-                        </div>
-                        <div class="state-graph">
-                            <div id="header-chart-2"></div>
-                            <div class="info">Item Sold 1230</div>
-                        </div>
-                    </div>
+                <div class="col-sm-12 text-center">
+                    
 
-                    <h4 class="page-title">Edit User</h4>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Edit User</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-                        <li class="breadcrumb-item active">Plane Page</li>
-                    </ol>
+                    <h2 class="text-white"> <i class="fa fa-user-plus"></i> Edit User </h2>
+                    
                 </div>
             </div>
         </div>

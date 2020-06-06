@@ -57,7 +57,7 @@ if (isset($_POST['login'])) {
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['user_id'] = $row['user_id'];
                     $_SESSION['computerName'] = $computer;
-                    $_SESSION['fullName'] = $row['sname'] . '' . $row['fname'];
+                    $_SESSION['adminFullName'] = $row['sname'] . '' . $row['fname'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['accountType'] = $row['accountType'];
                     $_SESSION['mobile'] = $row['mobile'];

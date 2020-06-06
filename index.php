@@ -1,149 +1,69 @@
-<?php  include "includes/front/home-header.php";  ?>
 
-<!-- Content
-  ============================================= -->
-<div id="content">
-    <section>
-        <div class="hero-wrap py-4 py-md-5">
-            <div class="hero-mask opacity-7 "  style="background-color:purple"></div>
-            <div class="hero-bg" style="background-image:url('frontend/images/bg/bg.jpg');"></div>
-            <div class="hero-content py-0 py-lg-3">
-                <div class="container">
-                    <div class="row">
+          <?php include"includes/front/header.php";  ?>
 
-                        <div class="col-lg-6 mt-5 mt-lg-0">
+        <!-- Background -->
+        <div class="account-pages"></div>
+        <!-- Begin page -->
+        <div class="wrapper-page">
 
-                                <img src="frontend/images/app-mobile.png" class="img-fluid " alt="phone" style="height:450px;width:400px">
-                              
+            <div class="card">
+                <div class="card-body">
 
+                    <h3 class="text-center m-0">
+                        <a href="index.php" class="logo logo-admin">
+                        <img src="frontend/images/logo.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="logo" style="width: 140px">
+                        </a>
+                    </h3>
 
-                        </div>
+                    <div class="p-3">
+                        <h4 class="text-muted font-18 m-b-5 text-center">Welcome Back !</h4>
+                        <p class="text-muted text-center">Sign in to continue to Online Trade.</p>
 
-                        <div class="col-lg-6 mt-5 mt-lg-0">
-                            <h2 class="text-9 font-weight-600 text-light">Why Working With Omega ?</h2>
-                            <p class="lead mb-4 text-light">Omega . Save Time and Money!</p>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="featured-box style-3 mb-4">
-                                        <div class="featured-box-icon border rounded-circle text-light"> <i
-                                                class="fa fa-money"></i></div>
-                                        <h3 class="text-light">Cheapest Price</h3>
-                                        <p class="text-light opacity-8">Always get cheapest price with the best in the
-                                            industry. So you get the best deal every time.</p>
+                        <?php if(isset($doLoginFeedback)){ echo $doLoginFeedback;}?>
+
+                        <form class="form-horizontal m-t-20" action="" method="POST">
+
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" name="username" required placeholder="Enter username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userpassword">Password</label>
+                                <input type="password"  name="password"  class="form-control" required placeholder="Enter password">
+                            </div>
+
+                            <div class="form-group row m-t-20">
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                        <label class="custom-control-label" for="customControlInline">Remember me</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="featured-box style-3 mb-4">
-                                        <div class="featured-box-icon border rounded-circle text-light"> <i
-                                                class="fa fa-times"></i></div>
-                                        <h3 class="text-light">Easy Cancellation & Refunds</h3>
-                                        <p class="text-light opacity-8">Get instant refund and get any booking fees
-                                            waived off! Easy cancellation process is available.</p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="featured-box style-3 mb-4">
-                                        <div class="featured-box-icon border rounded-circle text-light"> <i
-                                                class="fa fa-copy"></i></div>
-                                        <h3 class="text-light">No Booking Charges</h3>
-                                        <p class="text-light opacity-8">No hidden charges, no payment fees, and free
-                                            customer service. So you get the best deal every time!</p>
-                                    </div>
+                                <div class="col-6 text-right">
+                                    <button class="btn btn-primary w-md waves-effect waves-light" name="login"  type="submit">Log In</button>
                                 </div>
                             </div>
-                        </div>
 
-
-
-
-
-
-                        <!-- Slideshow end -->
-
+                            <div class="form-group m-t-10 mb-0 row">
+                                <div class="col-12 m-t-20">
+                                    <a href="pages-recoverpw.php" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
+
+            <div class="m-t-40 text-center">
+                <p class="text-white-50">Don't have an account ? <a href="pages-register.php" class="text-white"> Signup Now </a> </p>
+                <p class="text-muted">© <?php echo date('Y');  ?> Supply Software, All rights Reserved</p>
+            </div>
+
         </div>
-</div>
-</div>
-</div>
-</div>
-</section>
 
-<!-- Tabs
-    ============================================= -->
+        <!-- END wrapper -->
 
-<!-- Tabs end -->
-
-<!-- Refer & Earn
-    ============================================= -->
-<section class="hero-wrap section shadow-md">
-    <div class="hero-mask opacity-5 bg-dark"></div>
-    <div class="hero-bg" style="background-image:url('frontend/images/bg/background.jpg');"></div>
-    <div class="hero-content">
-        <div class="container">
-            <h2 class="text-9 font-weight-500 text-light text-center">Refer & Earn</h2>
-            <p class="lead text-light opacity-8 text-center mb-5">Refer your friends and earn up to $20.</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="featured-box text-center p-4">
-                        <div class="hero-mask opacity-7 bg-dark rounded"></div>
-                        <div class="hero-content">
-                            <div class="featured-box-icon shadow-none text-light mt-3 mb-4"> <i
-                                    class="fa fa-share"></i> </div>
-                            <h3 class="text-light">You Refer Friends</h3>
-                            <p class="text-3 text-light opacity-8">Share your referral link with friends. They get $10.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-4 mt-md-0">
-                    <div class="featured-box text-center p-4">
-                        <div class="hero-mask opacity-7 bg-primary rounded"></div>
-                        <div class="hero-content">
-                            <div class="featured-box-icon shadow-none text-light mt-3 mb-4"> <i
-                                    class="fa fa-sign-in"></i> </div>
-                            <h3 class="text-light">Your Friends Register</h3>
-                            <p class="text-3 text-light opacity-8">Your friends Register with using your referral link.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-4 mt-md-0">
-                    <div class="featured-box text-center p-4">
-                        <div class="hero-mask opacity-7 bg-dark rounded"></div>
-                        <div class="hero-content">
-                            <div class="featured-box-icon shadow-none text-light mt-3 mb-4"> <i
-                                    class="fa fa-money"></i> </div>
-                            <h3 class="text-light">Earn You</h3>
-                            <p class="text-3 text-light opacity-8">You get $20. You can use these credits to take
-                                recharge.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center pt-5"> <a href="#" class="btn btn-outline-light shadow-none">Get Started Earn</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Refer & Earn end -->
-
-<section class="hero-wrap section shadow-md">
-    <div class="hero-mask opacity-8 "  style="background-color:purple"></div>
-    <div class="hero-bg" style="background-image:url('frontend/images/bg/bg.jpg');"></div>
-    <div class="hero-content">
-        <div class="container">
-            <div class="justify-content-center text-center py-4">
-                <h2 class="text-9 text-light font-weight-400">Download Our Mobile App Now</h2>
-                <p class="lead text-light opacity-8 mb-4">Download our app for the fastest, most convenient way to
-                    Recharge &amp; Bill Payment, Booking and more....</p>
-                <a href="#" class="mr-4 btn btn-light shadow-none"><i class="fa fa-apple mr-1"></i> App Store</a>
-                 <a href="#" class="btn btn-light shadow-none"><i class="fa fa-android mr-1"></i> Play Store</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<?php  include "includes/front/home-footer.php";  ?>
+        <!-- jQuery  -->
+     <?php include"includes/front/footer.php";  ?>

@@ -1,4 +1,4 @@
-     <footer class="footer">
+     <footer class="footer" style="background-image: linear-gradient(90deg, #002F47, #002F47);">
          <div class="container-fluid">
 
              <div class="row">
@@ -76,9 +76,7 @@
        <script>
         $(document).ready(function() {
             $('form').parsley();
-
-
-
+ 
 
            
         });

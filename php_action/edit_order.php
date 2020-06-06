@@ -26,6 +26,9 @@ if($_POST) {
   $userid 				        = $_SESSION['client_id'];
 				
 	$sql = query("UPDATE orders SET order_date = '$orderDate', client_name = '$clientName', client_contact = '$clientContact', sub_total = '$subTotalValue', vat = '$vatValue', total_amount = '$totalAmountValue', discount = '$discount', grand_total = '$grandTotalValue', paid = '$paid', due = '$dueValue', payment_type = '$paymentType', payment_status = '$paymentStatus', order_status = 1 ,user_id = '$userid',payment_place = '$paymentPlace' , gstn = '$gstn' WHERE order_id = {$orderId}");	
+
+	 $sql1 = "INSERT INTO track_payments(client_name,amount_paid,balance,order_id) VALUES ('$clientName','$paid','$dueValue','$orderId') ";
+            $payment_insert = query($sql1);
 	
 	
 	$readyToUpdateOrderItem = false;

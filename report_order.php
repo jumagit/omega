@@ -54,13 +54,13 @@ $pdf=new PDF('P','mm','A4');
 $pdf->AddPage();
 /*output the result*/
 $pdf->SetFont('Arial','B',20);
-$pdf->Cell(71 ,10,'',0,0);
-$pdf->Cell(59 ,5,'Omega Sales Invoice',0,0);
-$pdf->Cell(59 ,10,'',0,1);
+$pdf->Cell(60 ,10,'',0,0);
+$pdf->Cell(60 ,10,'Omega Sales Invoice',0,0);
+$pdf->Cell(50 ,10,'',0,1);
 
 $pdf->SetFont('Arial','B',15);
 $pdf->Cell(71 ,5,'WET',0,0);
-$pdf->Cell(59 ,5,'',0,0);
+$pdf->Cell(59 ,10,'',0,0);
 $pdf->Cell(59 ,5,'Details',0,1);
 /*set font to arial, regular, 12pt*/
 $pdf->SetFont('Arial','',10);

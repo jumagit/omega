@@ -30,7 +30,7 @@ if ($_REQUEST['t'] == 'true') {
     $client_id = $_SESSION['client_id'];
 
     $sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id,client_id)
-	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$client_id,$client_id)";
+	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', '$paymentType', '$paymentStatus','$paymentPlace','$gstn', 1,'$client_id','$client_id')";
 
     $order_id;
     $orderStatus = false;
@@ -38,7 +38,13 @@ if ($_REQUEST['t'] == 'true') {
         $order_id = $connection->insert_id;
         $valid['order_id'] = $order_id;
         $orderStatus = true;
+
+
     }
+//inserting into trac orders
+
+    
+          
 
     // echo clean(clean($_POST['productName'];
     $orderItemStatus = false;
@@ -64,6 +70,9 @@ if ($_REQUEST['t'] == 'true') {
 
             $query = query($orderItemSql);
 
+
+
+     
             //out stock records
 
 
@@ -73,7 +82,14 @@ if ($_REQUEST['t'] == 'true') {
         } // while
     } // /for quantity
 
-    if ($query) {
+
+       $sql1 = "INSERT INTO track_payments(client_name,amount_paid,balance,order_id) VALUES ('$clientName','$paid','$dueValue','$order_id')";
+
+         $insert_track = query($sql1);
+
+
+
+    if ($insert_track && $query ) {
         $feed_back = array('status' => true, 'msg' => 'success');
     } else {
         $feed_back = array('status' => false, 'msg' => mysqli_error($connection));

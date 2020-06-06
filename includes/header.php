@@ -1,31 +1,15 @@
 <?php  
 
 
-ob_start();
-
-session_start();
 
 
 error_reporting(0);
 
 
+require_once 'php_action/check_if_logged_in.php';
 
 
-
-if(!isset($_SESSION['client_id']) AND $_SESSION['client_id'] == '' || !isset($_SESSION['user_id']) AND $_SESSION['user_id'] == '')
-{
-
-  header('Location:index.php');
- 
-}
-
-
-
-
-
-
-
-include "includes/functions.php";
+require_once 'includes/functions.php';
 
 
 ?>
@@ -56,4 +40,4 @@ include "includes/functions.php";
 
 </head>
 
-<body>
+<body style="background-image: linear-gradient(90deg, #002F47, #002F47);">

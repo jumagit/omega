@@ -12,6 +12,8 @@ if ($_REQUEST['t'] == 'true') {
         $created_by = $_SESSION['fullName'];
     }
 
+
+    $supplierCode = substr(strtoupper(clean($_POST['supplierCode'])), 0,3 );
     $fullName = clean($_POST['fullName']);
     $username = clean($_POST['username']);
     $location = clean($_POST['location']);
@@ -20,8 +22,18 @@ if ($_REQUEST['t'] == 'true') {
     $password = generatePassword();
     $newpass =  md5($password);
 
-    $sql = "INSERT INTO clients (fullName,email,mobile,location,username,password,cpassword,created_by)
-     VALUES ('$fullName', '$email', '$mobile', '$location', '$username', '$newpass','$password', '$created_by')";
+
+
+    $sql_select = query("SELECT email,fullName,username FROM clients WHERE username = '$username'  OR fullName = '$fullName' OR email = '".$email."'  ") or die(mysqli_error($connection));
+
+
+    $count = mysqli_num_rows($sql_select);
+
+
+    if($count == 0) {
+
+    $sql = "INSERT INTO clients (fullName,email,mobile,location,username,password,cpassword,suppliercode, created_by)
+     VALUES ('$fullName', '$email', '$mobile', '$location', '$username', '$newpass','$password','$supplierCode', '$created_by')";
 
     $query = query($sql);
 
@@ -30,18 +42,14 @@ if ($_REQUEST['t'] == 'true') {
 
     $client_body_body_message= '  <html>
 
-    <body style="background-color:#e2e1e0;font-family: Open Sans, sans-serif;font-size:100%;font-weight:400;line-height:1.4;color:#000;">
-         <table style="width:800px;margin:50px auto 10px;background-color:#fff;padding:50px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);-moz-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); border-top: solid 10px green;">
-              <thead>
-                   <tr>
-                        <th style="text-align:left;">
-                             <img style="max-width: 150px;" src="https://www.bachanatours.in/book/img/logo.png" alt="online sales">
-                        </th>
-
-
-                        <th style="text-align:center;font-weight:400;">05th Apr, 2017</th>
-                   </tr>
-              </thead>
+     <body style="background-color:#e2e1e0;font-family: Open Sans, sans-serif;font-size:100%;font-weight:400;line-height:1.4;color:#000;">
+          <table style="width:800px;margin:50px auto 10px;background-color:#fff;padding:50px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);-moz-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); border-top: solid 10px green;">
+               <thead>
+                    <tr>
+                         <th style="text-align:left;"><img style="max-width: 150px;" src="" alt="online sales"></th>
+                         <th style="text-align:right;font-weight:400;">05th Apr, 2017</th>
+                    </tr>
+               </thead>
               <tbody>
                    <tr>
                         <td style="height:25px;"></td>
@@ -146,15 +154,13 @@ if ($_REQUEST['t'] == 'true') {
     </body>
 
 </html>
-    
-    
-    
-                              ';
+  ';
 
 
 
 
-   $account =  sendMail('mukoovajumag8@gmail.com','Account Creation',$client_body_body_message);
+   // $account =  sendMail('mukoovajumag8@gmail.com','Account Creation',$client_body_body_message);
+     $account =  sendMail($email,'Account Creation',$client_body_body_message);
 
     if ($query && $account) {
         $feed_back = array('status' => true, 'msg' => 'success');
@@ -162,6 +168,13 @@ if ($_REQUEST['t'] == 'true') {
         $feed_back = array('status' => false, 'msg' => mysqli_error($connection));
     }
 
+}else{
+
+   $feed_back = array('status' => false , 'msg'=>  "Supplier with  ".strtoupper($email)."  already present in the table");
+
+ // $feed_back = array('status' => false, 'msg' => $fullName. "Already Exists in the system");
+
+}
     $dataX = json_encode($feed_back);
     header('Content-Type: application/json');
     echo $dataX;

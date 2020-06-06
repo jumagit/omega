@@ -49,6 +49,13 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong>Here you view All registered Suppliers
                             </div>
+
+
+                            <h1 class="text-center"> 
+
+                              
+                                 
+                             </h1>
                            
 
                             <div class="d-block float-right" style="">
@@ -123,20 +130,20 @@
 
                                     <div class="form-group row">
 
-                                        <div class="col-sm-4 ">
-                                            <label for="username">Full Name :</label>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <label for="supplierCode">Supplier Code:</label>
                                         </div>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="fullName" class="form-control"
-                                                placeholder="Enter Full Names" required>
+                                        <div class="col-sm-8 col-xs-12">
+                                            <input type="text" name="supplierCode" class="form-control"  data-parsley-minlength="3" data-parsley-maxlength="3"
+                                                placeholder="Enter 3 Uppercase Characters" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 col-xs-12">
                                             <label for="email">Email :</label>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 col-xs-12">
                                             <input type="email" name="email" class="form-control" parsley-type="email"
                                                 required placeholder="Enter Email Address">
                                         </div>
@@ -144,10 +151,10 @@
 
 
                                     <div class="form-group row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 col-xs-12">
                                             <label for="location">Location :</label>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 col-xs-12">
                                             <input type="text" name="location" class="form-control"
                                                 placeholder="Enter Location" required>
                                         </div>
@@ -161,22 +168,33 @@
 
 
                                     <div class="form-group row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 col-xs-12">
                                             <label for="mobile">Phone :</label>
                                         </div>
-                                        <div class="col-sm-8">
-                                            <input type="number" name="mobile" class="form-control"
+                                        <div class="col-sm-8 col-xs-12">
+                                            <input type="text" name="mobile" class="form-control"
                                                 data-parsley-type="number" placeholder="Enter Phone Contact" required
                                                 data-parsley-minlength="10" data-parsley-maxlength="10">
                                         </div>
                                     </div>
 
+                                      <div class="form-group row">
+
+                                        <div class="col-sm-4 col-xs-12">
+                                            <label for="username">Full Name :</label>
+                                        </div>
+                                        <div class="col-sm-8 col-xs-12">
+                                            <input type="text" name="fullName" class="form-control"
+                                                placeholder="Enter Full Names" required>
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 col-xs-12">
                                             <label for="username">Username :</label>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 col-xs-12">
                                             <input type="text" name="username" class="form-control"
                                                 placeholder="Enter Username" required>
                                         </div>

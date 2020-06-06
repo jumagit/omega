@@ -19,3 +19,9 @@ sasula.co.ug
 
 username = admin.b100359
 password = golipkabengwa**
+
+
+git remote add origin https://jumagit@bitbucket.org/jumagit/omega.git
+
+
+//cell(width,height,content,border(0,1));

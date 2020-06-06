@@ -1,5 +1,5 @@
  <header id="topnav">
-            <div class="topbar-main">
+            <div class="topbar-main" style="background-image: linear-gradient(90deg, #002F47, #002F47);">
                 <div class="container-fluid">
 
                     <!-- Logo container-->
@@ -83,15 +83,9 @@
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
                                        
-                                        <?php  if(isset($_SESSION['user_id']) ){ ?>
+                                        
                                             <a class="dropdown-item" href="activity_logs.php"><i class="mdi mdi-lock-open-outline m-r-5"></i> History</a>
 
-                                        <?php }else{ ?>
-
-                                              <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Happenings</a>
-                                        
-                                       
-                                      <?php } ?>
                                        <a class="dropdown-item" href="profile.php"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
                                        
                                        
@@ -121,17 +115,14 @@
                              <li class="dropdown-item-text pt-2">
                                 <h6 class="text-white">
                                     
-                                    <?php 
+                                 
+                                    <span class="btn btn-info"> <?php if (isset($_SESSION['fullName'])) {
+                                       echo $_SESSION['fullName'];
+                                    } ?><span>
+                                  
+                                    
 
-                                    if (isset($_SESSION['client_id'])) {
-                                       echo '<span class="btn btn-info">'.$_SESSION['fullName'].'<span>';
-                                    }else if(isset($_SESSION['user_id'])){
-                                         echo '<span class="btn btn-info">'.$_SESSION['fullName'].'<span>';
-                                    }else{
-                                         echo '<span class="btn btn-info">No User<span>';
-                                    }
-
-                                     ?>
+                                     
                                 </h6>
                             </li>
 
@@ -149,54 +140,13 @@
             <!-- end topbar-main -->
 
             <!-- MENU Start -->
-            <div class="navbar-custom">
+            <div class="navbar-custom" style="border-bottom: 4px solid #F86F15;">
                 <div class="container-fluid">
                     <div id="navigation">
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
 
-                        <?php  if(isset($_SESSION['client_id']) && !isset($_SESSION['user_id'])){ ?>
-
-                            <li class="has-submenu">
-                                <a href="indexClient.php"><i class="mdi mdi-home"></i>Client Dashboard</a>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="categories.php"><i class="mdi mdi-buffer"></i>Categories Section</a>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="products.php"><i class="mdi mdi-apps"></i>Stock Section</a>
-                                <ul class="submenu">
-                                    <li><a href="out_stock.php">Out Stock</a></li>                                 
-                                    
-                                </ul>
-                            </li>
-
-                           
-
-                            <li class="has-submenu">
-                                <a href="orders.php"><i class="mdi mdi-cart-plus"></i>Orders Section</a>
-                                <ul class="submenu">
-                                    <li><a href="create_order.php">Create Order</a></li>
-                                    
-                                    
-                                </ul>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-basket-fill"></i>Sales Section</a>
-                            </li>                           
-
-
-                            <li class="has-submenu">
-                                <a href="reports.php"><i class="mdi mdi-finance"></i>Reports Section</a>
-                               
-                            </li>
-
-
-
-                            <?php  }else{ ?>
+                   
 
                                 <li class="has-submenu">
                                 <a href="indexMain.php"><i class="mdi mdi-home"></i>Admin Dashboard</a>
@@ -219,7 +169,7 @@
                             </li>
 
 
-                            <?php  } ?>
+                          
 
                         
 

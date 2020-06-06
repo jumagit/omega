@@ -23,6 +23,19 @@ $comp=substr($mycom,($pmac+36),17);
 #$comp = gethostbyaddr($_SERVER['REMOTE_ADDR']);
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 session_start();
+
+
+if(isset($_SESSION['user_id'])){
+    if($_SESSION['user_id'] == true){
+       
+    } else {
+        header('Location:index.php');
+        exit;
+    }
+}
+
+
+
   if ((!$_SESSION['username']) && ($_SESSION['computerName'] != '$comp')) {
     #$_SESSION['flash_error'] = "Please sign in";
     header("Location: index.php");

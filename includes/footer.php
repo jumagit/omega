@@ -49,34 +49,41 @@
 
     
     <script src="plugins/money/Number.js"></script>
-     <!-- Datatable init js -->
-     <script src="assets/pages/datatables.init.js"></script>
+    
      <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
      <!-- Sweet-Alert  -->
      <script src="plugins/sweet-alert2/sweetalert2.min.js"></script>
-     <script src="assets/pages/sweet-alert.init.js"></script>
 
-     <!-- Chartist Chart
-     <script src="plugins/chart.min.js"></script> -->
-
+      <script src="assets/js/Chart.min.js"></script>
+   
      <!-- App js -->
      <script src="assets/js/app.js"></script>
 
    
 
 
-     <script src="assets/js/functions.js"></script>
+     <script src="assets/js/main.js"></script>
 
-     <script src="assets/js/Chart.min.js"></script>
+    
      
-     <script src="assets/js/charts.js"> </script>
+     <script src="assets/js/parmanent.js"> </script>
 
      <script src="assets/js/bootstrap.bundle.min.js"></script>
 
        <script>
         $(document).ready(function() {
-            $('form').parsley();
- 
+             $('form').parsley();
+             $('#datatable').DataTable();
+
+            //Buttons examples
+            var table = $('#datatable-buttons').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'colvis']
+            });
+
+            table.buttons().container()
+            .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
+
 
            
         });

@@ -12,26 +12,14 @@
             <div class="page-title-box">
                 <div class="container-fluid">
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="state-information d-none d-sm-block">
-                                <div class="state-graph">
-                                    <div id="header-chart-1"></div>
-                                    <div class="info">Balance $ 2,317</div>
-                                </div>
-                                <div class="state-graph">
-                                    <div id="header-chart-2"></div>
-                                    <div class="info">Item Sold 1230</div>
-                                </div>
-                            </div>
+                <div class="row">
+                <div class="col-sm-12 text-center">
+                    
 
-                            <h4 class="page-title">Activity Logs</h4>
-                            <ol class="breadcrumb">
-
-                                <li class="breadcrumb-item active">Activity Logs</li>
-                            </ol>
-                        </div>
-                    </div>
+                    <h2 class="text-white"> <i class="fa fa-tasks"></i> Activity Logs </h2>
+                    
+                </div>
+               </div>
                 </div>
                 <!-- end container-fluid -->
 
@@ -47,7 +35,7 @@
                                 <div class="card-body">
 
                                     <h4 class="mt-0 header-title">Activity Logs</h4>
-                                    <div class="alert alert-dark bg-dark  font-weight-normal  text-white alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <div class="alert alert-info  font-weight-normal  alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                      </button>  <i class=" mdi mdi-arrow-down-box"></i>  
                                      Here You can View All What has beens Happening in the system
@@ -56,7 +44,7 @@
 
 
                                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                        <thead>
+                                        <thead style="background-color: #002F47; color: #fff;">
                                         <tr>
                                             <th>#</th>                                           
                                             <th>User</th>

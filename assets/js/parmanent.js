@@ -1,43 +1,9 @@
      jQuery(document).ready(function($) {
 
-          client_chart();
           admin_client();
           admin_pie_chart();
 
-          function client_chart() {
-               $.post('php_action/client_charts.php', function(data, textStatus, xhr) {
-                    //console.log(data);
-                    var name = [];
-                    var total = [];
-
-                    for (var i in data) {
-                         name.push(data[i].order_date);
-                         total.push(data[i].total);
-                    }
-
-                    var chartdata = {
-                         labels: name,
-                         datasets: [{
-                              label: 'Client Sales',
-                              backgroundColor: '#F0AD4E',
-                              borderColor: '#ff6600',
-                              hoverBackgroundColor: '#CCCCCC',
-                              hoverBorderColor: '#666666',
-                              data: total
-                         }]
-                    };
-
-                    var graphTarget = $("#clientSales");
-
-                    var barGraph = new Chart(graphTarget, {
-                         type: 'line',
-                         data: chartdata
-                    });
-
-               });
-
-          }
-
+         
           //admin 
 
 
@@ -70,8 +36,8 @@
                         pointBackgroundColor: "#fff",
                         pointBorderWidth: 1,
                         pointHoverRadius: 5,
-                        backgroundColor: "#EBF8A4",
-                        borderColor: "#35a989",
+                        backgroundColor: "#888545",
+                        borderColor: "#F86F15",
                         borderWidth: 1,
                         pointHoverBackgroundColor: "#f5b225",
                         pointHoverBorderColor: "#fff",
@@ -86,7 +52,16 @@
 
                     var barGraph = new Chart(graphTarget, {
                          type: 'bar',
-                         data: chartdata
+                         data: chartdata,
+                         options: {
+                         scales: {
+                             yAxes: [{
+                                 ticks: {
+                                     beginAtZero: true
+                                 }
+                             }]
+                         }
+                     },
                     });
 
                });

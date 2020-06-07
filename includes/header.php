@@ -1,21 +1,8 @@
-<?php  
-
-
-
-
+<?php
 error_reporting(0);
-
-
 require_once 'php_action/check_if_logged_in.php';
-
-
-require_once 'includes/functions.php';
-
-
+require_once 'includes/core.php';
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 

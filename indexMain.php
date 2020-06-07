@@ -112,20 +112,29 @@
             <div class="col-xl-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mt-0 header-title mb-4">PIE CHART</h4>
-                            <canvas id="admin_pie" height="300"></canvas>
+                            <h4 class="mt-0 header-title mb-4">OVERALL CHARTS</h4>
+                            <canvas id="admin_pie" height="250"></canvas>
                         </div>
                     </div>
                 </div>
                 
                 <!-- end col -->
 
-
-                <div class="col-xl-8">
+                 <div class="col-xl-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mt-0 header-title mb-4">SALES ANALYTICS</h4>
-                            <canvas id="adminOrders" height="150"></canvas>
+                            <h4 class="mt-0 header-title mb-4">TOTAL SALES</h4>
+                            <canvas id="adminOrders" height="250"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mt-0 header-title mb-4">TOTAL CLIENTS</h4>
+                            <canvas id="customerTotals" height="250"></canvas>
                         </div>
                     </div>
                 </div>

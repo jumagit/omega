@@ -7,8 +7,8 @@
         
         
         
-            $user_id = $_SESSION['userId'];
-            $sql = "SELECT * FROM users WHERE user_id = {$user_id}";
+            $user_id = $_SESSION['user_id'];
+            $sql = "SELECT * FROM users WHERE user_id = $user_id";
             $query = query($sql);
             $result = $query->fetch_assoc();
 
@@ -24,25 +24,12 @@
     <div class="page-title-box">
         <div class="container-fluid">
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="state-information d-none d-sm-block">
-                        <div class="state-graph">
-                            <div id="header-chart-1"></div>
-                            <div class="info">Balance $ 2,317</div>
-                        </div>
-                        <div class="state-graph">
-                            <div id="header-chart-2"></div>
-                            <div class="info">Item Sold 1230</div>
-                        </div>
-                    </div>
+             <div class="row">
+                <div class="col-sm-12 text-center">
+                    
 
-                    <h4 class="page-title">Categories</h4>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Plane Page</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-                        <li class="breadcrumb-item active">Plane Page</li>
-                    </ol>
+                    <h2 class="text-white"> <i class="fa fa-cogs"></i> Settings </h2>
+                    
                 </div>
             </div>
         </div>
@@ -57,12 +44,20 @@
             <div class="row">
                 <div class="col-6">
                     <div class="card m-b-20">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mt-0 "> <i class="fa fa-user"></i> Change Username</h4>
+                        </div>
                         <div class="card-body">
 
-                            <h4 class="mt-0 header-title">Change Username</h4>
-                            <hr>
-                            <p class="text-muted m-b-30">Here you view can Change your Username
-                            </p>
+                            
+                         
+                          
+                             <div class="alert alert-info font-weight-normal   alert-dismissible fade show"
+                                role="alert"> <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong>Here you view can Change your Username
+                            </div>
 
                             <form action="" id="changeUsername">
 
@@ -79,9 +74,9 @@
                                 </div>
 
 
-                                <div class="form-group float-right">
+                                <div class="form-group ">
 
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                    <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">
                                         <i class="mdi mdi-content-save"></i> Change Username
                                     </button>
                                 </div>
@@ -97,12 +92,18 @@
 
                 <div class="col-6">
                     <div class="card m-b-20">
+                         <div class="card-header bg-dark text-white">
+                            <h4 class="mt-0 "><i class="fa fa-lock"></i> Change Password</h4>
+                        </div>
                         <div class="card-body">
 
-                            <h4 class="mt-0 header-title">Change Password</h4>
-                            <hr>
-                            <p class="text-muted m-b-30">Here you can change your Password
-                            </p>
+                           
+                              <div class="alert alert-info font-weight-normal   alert-dismissible fade show"
+                                role="alert"> <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> <strong> <i class=" mdi mdi-arrow-down-box"></i> </strong>Here you view can Change your Password
+                            </div>
 
                             <form action="" id="changePassword">
 
@@ -138,10 +139,10 @@
                                 </div>
 
 
-                                <div class="form-group float-right">
+                                <div class="form-group">
                                     <input type="hidden" name="puser_id" id="puser_id"
                                         value="<?php echo $result['user_id'] ?>" />
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                    <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">
                                         <i class="mdi mdi-content-save"></i> Change Password
                                     </button>
                                 </div>
